@@ -64,16 +64,16 @@ export default function LandingPageV4() {
             initial={{ height: "0%" }}
             animate={{ height: "120%" }}
             transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute -bottom-[10%] right-[30%] w-[15%] bg-black/10 origin-bottom -rotate-3"
+            className="absolute -bottom-[10%] right-[30%] w-[15%] bg-black/10 origin-bottom -rotate-3 z-10"
           />
 
-          {/* The Red Circle - The focal point */}
+          {/* The Orange Circle - The focal point */}
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.5, delay: 0.6, type: "spring", stiffness: 100 }}
             className="absolute top-[40%] left-[45%] w-24 h-24 md:w-48 md:h-48 rounded-full z-10"
-            style={{ backgroundColor: V5Colors.orange, opacity: 0.6 }}
+            style={{ backgroundColor: V5Colors.orange, opacity: 0.8 }}
           />
 
           {/* Parallel vertical lines (Right side) */}
@@ -109,19 +109,19 @@ export default function LandingPageV4() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.8 }}
-              className="max-w-md text-right md:mb-8 text-orange-600"
+              className="w-[300px] text-left mr-[10%] md:mb-8 text-orange-500"
             >
               <p className="text-xl font-bold leading-tight mb-8">
                 We strip away the noise to reveal the underlying geometry of your data. Minimalist
                 AI for complex problems.
               </p>
 
-              <Link
-                to="/v4/app"
-                className="inline-block text-2xl font-black border-b-4 border-black pb-1 text-black hover:text-orange-600 hover:border-orange-600 transition-colors"
-              >
-                DISCOVER
-              </Link>
+              {/*<Link*/}
+              {/*  to="/v4/app"*/}
+              {/*  className="inline-block text-2xl font-black border-b-4 border-black pb-1 text-black hover:text-orange-600 hover:border-orange-600 transition-colors"*/}
+              {/*>*/}
+              {/*  DISCOVER*/}
+              {/*</Link>*/}
             </motion.div>
           </div>
         </div>
@@ -192,7 +192,7 @@ export default function LandingPageV4() {
             <div className="relative">
               <motion.div
                 style={{ rotate }}
-                className="w-full aspect-square border border-black/10 relative flex items-center justify-center bg-white shadow-xl"
+                className="w-full aspect-square border border-black/10 relative flex items-center justify-center bg-white/80 shadow-xl"
               >
                 <div className="absolute inset-8 border border-orange-600/20 rounded-full" />
                 <div className="absolute inset-16 border border-black/10 rotate-45" />

@@ -8,8 +8,8 @@ const V6Colors = {
   bg: "#F2EFE4", // Light Cream/Paper
   ink: "#141414", // Soft Black
   lightBlack: "#636363", // Soft Black
-  accent: "#E9D5FF", // Pastel Purple Accent
-  accentDark: "#A855F7", // Deeper Purple
+  accent: "#f89027", // Pastel Purple Accent
+  accentDark: "#f7a655", // Deeper Purple
 };
 
 export default function LandingPageV5() {
@@ -47,7 +47,7 @@ export default function LandingPageV5() {
       style={{ backgroundColor: V6Colors.bg, color: V6Colors.ink }}
     >
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full p-8 md:p-12 flex justify-between items-center z-50 pointer-events-none">
+      <nav className="fixed top-0 left-0 w-full px-12 py-6 flex justify-between items-center z-50 pointer-events-none">
         <div className="pointer-events-auto">
           <Link
             to="/"
@@ -83,8 +83,8 @@ export default function LandingPageV5() {
       {/* HERO SECTION */}
       <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden">
         {/* Background "Bookshelves" */}
-        <div className="absolute inset-0 flex flex-col justify-between py-10 opacity-100 z-10 select-none pointer-events-none">
-          {[0, 1, 2, 3].map((row) => (
+        <div className="absolute inset-0 flex flex-col justify-between py-32 opacity-100 z-10 select-none pointer-events-none">
+          {[0, 1, 2].map((row) => (
             <div
               key={row}
               className="flex items-end justify-center overflow-hidden h-1/4 w-[120%] -ml-[10%] border-b border-black/10"
@@ -141,8 +141,8 @@ export default function LandingPageV5() {
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
-                  transition={{ delay: 2, duration: 1.5, ease: "easeInOut" }}
-                  className="absolute -bottom-3 left-0 h-2 bg-purple-400 -z-10"
+                  transition={{ delay: 1.5, duration: 1.5, ease: "easeInOut" }}
+                  className="absolute -bottom-3 left-0 h-2 bg-gradient-to-r from-purple-400 to-orange-400 -z-10"
                 />
               </span>
             </motion.h1>
@@ -285,7 +285,7 @@ export default function LandingPageV5() {
                 className="w-80 h-80 relative z-10 overflow-hidden rounded-[2rem] border border-black/10 aspect-[1/1] shadow-2xl group"
               >
                 <img
-                  src="/refs_for_version_5/SCR-20260208-krhk.jpeg"
+                  src="/v5/image1.jpeg"
                   alt="Person reading among bookshelves"
                   className="object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
                 />

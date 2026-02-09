@@ -14,13 +14,6 @@ export default function SaasPageV1() {
               APP
             </span>
           </div>
-          <Link
-            to="/v1"
-            className="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-primary-blue transition-colors flex items-center gap-1.5"
-          >
-            <Home size={14} />
-            Back to Landing
-          </Link>
         </div>
 
         <div className="flex-1 grid grid-cols-1 md:grid-cols-12 overflow-hidden">
@@ -105,6 +98,16 @@ export default function SaasPageV1() {
             </div>
           </div>
         </div>
+      </div>
+      {/* Back Button - Bottom of the screen */}
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+        <Link
+          to="/v1"
+          className="bg-primary-blue text-white px-8 py-3 rounded-none font-bold uppercase tracking-widest text-xs shadow-[4px_4px_0px_0px_var(--color-ink)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all flex items-center gap-2 border-2 border-ink"
+        >
+          <Home size={14} />
+          Back to Landing
+        </Link>
       </div>
       <HomeWidget />
     </div>
