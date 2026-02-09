@@ -27,7 +27,7 @@ export default function LandingPageV4() {
       style={{ backgroundColor: V5Colors.bg, color: V5Colors.black }}
     >
       {/* Navigation - using mix-blend-difference for visibility across sections */}
-      <nav className="fixed top-0 left-0 w-full p-6 md:p-12 flex justify-between items-start z-50 pointer-events-none text-black">
+      <nav className="fixed top-0 left-0 w-full p-6 md:p-12 !py-6 flex justify-between items-start z-50 pointer-events-none text-black">
         <div className="pointer-events-auto">
           <Link
             to="/"
@@ -235,7 +235,7 @@ export default function LandingPageV4() {
       {/* SECTION 4: RESEARCH & COLLABORATION */}
       <section
         ref={targetRef}
-        className="relative z-20 w-full py-24 bg-[#0F0F0F] text-[#EBE5CE] overflow-hidden border-t border-[#EBE5CE]/10"
+        className="relative z-20 h-[60vh] w-full py-24 bg-[#0F0F0F] text-[#EBE5CE] overflow-hidden border-t border-[#EBE5CE]/10"
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
@@ -287,8 +287,8 @@ export default function LandingPageV4() {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-30 w-full bg-black text-[#EBE5CE] pt-24 pb-12 px-6 overflow-hidden">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12 mb-24">
+      <footer className="relative z-30 w-full bg-black text-[#EBE5CE] py-12 px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
           <div>
             <h2 className="text-6xl font-black tracking-tighter mb-6">LAER</h2>
             <div className="flex gap-4">
@@ -308,11 +308,6 @@ export default function LandingPageV4() {
               Login
             </a>
           </div>
-        </div>
-
-        <div className="w-full border-t border-[#EBE5CE]/20 pt-8 flex flex-col md:flex-row justify-between text-sm opacity-40 uppercase tracking-widest gap-4">
-          <span>© 2026 LAER SYSTEMS</span>
-          <span>VERSION 5.0 [TEOREMA]</span>
         </div>
       </footer>
       <HomeWidget />
