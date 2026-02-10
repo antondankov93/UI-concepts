@@ -3,15 +3,17 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { HomeWidget } from "../../components/HomeWidget";
 import { useEffect, useRef } from "react";
+import { useCompanyName } from "../../hooks/useCompanyName";
 
 const V7Colors = {
   bg: "#FFFFFF", // Pure White for "Airy" feel
   ink: "#1A1A1A", // Sharp Black
-  accent: "#0047FF", // Electric Blue
+  accent: "#4F46E5", // Elegant Indigo
 };
 
 export default function LandingPageV6() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { companyName } = useCompanyName();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -41,9 +43,9 @@ export default function LandingPageV6() {
       for (let i = 0; i < lines; i++) {
         ctx.beginPath();
 
-        // Highlight 3-4 lines in blue
-        const isBlue = i === 15 || i === 30 || i === 45;
-        ctx.strokeStyle = isBlue ? V7Colors.ink : V7Colors.ink;
+        // Highlight 3-4 lines in accent color
+        const isAccent = i === 15 || i === 30 || i === 45;
+        ctx.strokeStyle = isAccent ? V7Colors.accent : V7Colors.ink;
 
         // Distribute lines vertically
         const baseY = (canvas.height / lines) * i;
@@ -93,7 +95,7 @@ export default function LandingPageV6() {
             to="/"
             className="text-2xl font-light tracking-[0.2em] uppercase leading-none block"
           >
-            LAER
+            {companyName}
           </Link>
         </div>
 
@@ -128,7 +130,10 @@ export default function LandingPageV6() {
             transition={{ delay: 0.8, duration: 1 }}
             className="flex flex-col items-center gap-4"
           >
-            <div className="h-px w-24 bg-black/30"></div>
+            <div
+              className="h-0.5 w-24 bg-black/30"
+              style={{ backgroundColor: V7Colors.accent }}
+            ></div>
             <p className="text-lg md:text-xl font-light max-w-lg text-black/70 italic">
               "From chaos comes clarity. The organic structure of wisdom."
             </p>

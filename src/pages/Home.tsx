@@ -1,11 +1,24 @@
 import { VersionCard } from "../components/VersionCard";
+import { useState } from "react";
+import { useCompanyName } from "../hooks/useCompanyName";
+import CompanySettings from "../components/CompanySettings";
+import { Settings } from "lucide-react";
 
 export default function Home() {
+  const { companyName } = useCompanyName();
+  const [showSettings, setShowSettings] = useState(false);
   return (
     <div className="min-h-screen bg-paper text-ink font-sans flex items-center justify-center p-6 overflow-x-hidden">
+      <button
+        onClick={() => setShowSettings(true)}
+        className="fixed top-6 right-6 z-50 p-3 bg-white border-2 border-ink rounded-full hover:bg-ink hover:text-white transition-colors shadow-lg"
+        title="Company Settings"
+      >
+        <Settings className="w-5 h-5" />
+      </button>
       <div className="w-full pl-32">
         <h1 className="text-6xl font-bold mb-12 tracking-tighter">
-          LAER <br />
+          {companyName} <br />
           <span className="text-primary-blue">DESIGN VERSIONS</span>
         </h1>
 
@@ -88,15 +101,15 @@ export default function Home() {
             cardBgColor="bg-[#EBE5CE]"
             statusBgColor="bg-black"
             statusTextColor="text-white"
-            description="Pure Form Logic. Minimalist abstraction, tension between black masses and red energy. Pasolini inspired."
-            borderColor="border-orange-600"
+            description="Pure Form Logic. Minimalist abstraction, tension between black masses and blue energy. Pasolini inspired."
+            borderColor="border-blue-600"
             to="/v4"
-            hoverColor="hover:text-orange-600"
+            hoverColor="hover:text-blue-600"
           >
             <div className="absolute inset-0 pointer-events-none opacity-20">
               <div className="absolute top-0 right-10 w-4 h-full bg-black" />
               <div className="absolute top-0 right-20 w-4 h-full bg-black" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-orange-600 rounded-full" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-blue-600 rounded-full" />
             </div>
           </VersionCard>
 
@@ -153,6 +166,7 @@ export default function Home() {
           </VersionCard>
         </div>
       </div>
+      {showSettings && <CompanySettings onClose={() => setShowSettings(false)} />}
     </div>
   );
 }

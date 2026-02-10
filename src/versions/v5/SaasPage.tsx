@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { HomeWidget } from "../../components/HomeWidget";
 import { Home, Search, Layers, Users, Settings, Bell, Book, BarChart2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useCompanyName } from "../../hooks/useCompanyName";
 
 const V6Colors = {
   bg: "#F2EFE4", // Light Cream/Paper
@@ -10,6 +11,7 @@ const V6Colors = {
 };
 
 export default function SaasPageV5() {
+  const { companyName } = useCompanyName();
   return (
     <div
       className="min-h-screen w-full flex flex-col md:flex-row font-sans selection:bg-black selection:text-[#F2EFE4] overflow-hidden"
@@ -22,7 +24,7 @@ export default function SaasPageV5() {
             to="/v5"
             className="text-xl font-black tracking-tighter uppercase leading-none hover:scale-105 transition-transform"
           >
-            LAER
+            {companyName}
           </Link>
         </div>
 
@@ -58,7 +60,7 @@ export default function SaasPageV5() {
 
         {/* User Profile */}
         <div className="p-4 border-t border-black/5 flex items-center gap-3 justify-center lg:justify-start">
-          <div className="w-8 h-8 rounded-full bg-black text-[#F2EFE4] flex items-center justify-center font-bold border border-black/10 text-sm">
+          <div className="w-8 h-8 rounded-xl bg-black text-[#F2EFE4] flex items-center justify-center font-bold border border-black/10 text-sm">
             A
           </div>
           <div className="hidden lg:block">
@@ -89,7 +91,7 @@ export default function SaasPageV5() {
             </div>
             <button className="relative hover:scale-110 transition-transform">
               <Bell className="w-5 h-5" />
-              <div className="absolute top-0 right-0 w-2 h-2 bg-black rounded-full border border-[#F2EFE4]"></div>
+              <div className="absolute top-0 right-0 w-2 h-2 bg-black rounded-xl border border-[#F2EFE4]"></div>
             </button>
           </div>
         </header>
@@ -129,7 +131,7 @@ export default function SaasPageV5() {
                       initial={{ height: 0 }}
                       animate={{ height: `${height}%` }}
                       transition={{ duration: 0.8, delay: i * 0.05 }}
-                      className="w-full bg-black relative group/bar hover:bg-opacity-80 transition-colors cursor-pointer rounded-t-lg"
+                      className="w-full bg-black relative group/bar hover:bg-opacity-80 transition-colors cursor-pointer rounded-t-sm"
                     >
                       {/* Spine detail */}
                       <div className="absolute top-1 left-[10%] right-[10%] h-[2px] bg-white/20"></div>
@@ -157,7 +159,7 @@ export default function SaasPageV5() {
                     {stat.label}
                   </div>
                   <div className="text-3xl font-black tracking-tighter">{stat.value}</div>
-                  <div className="absolute top-4 right-4 text-[10px] font-bold bg-black/80 text-[#F2EFE4] px-2 py-1 rounded-lg">
+                  <div className="absolute top-4 right-4 text-[10px] font-bold bg-black/80 text-[#F2EFE4] px-2 py-1 rounded-xl">
                     {stat.delta}
                   </div>
                 </div>
@@ -214,7 +216,7 @@ export default function SaasPageV5() {
                     <div className="flex items-center gap-5 text-xs font-bold">
                       <div className="opacity-40">{item.time}</div>
                       <div
-                        className={`px-2 py-1 border border-black/5 text-[10px] uppercase rounded-lg ${item.status === "Processing" ? "bg-black/60 text-white animate-pulse" : "bg-[#F2EFE4]"}`}
+                        className={`px-2 py-1 border border-black/5 text-[10px] uppercase rounded-md ${item.status === "Processing" ? "bg-black/60 text-white animate-pulse" : "bg-[#F2EFE4]"}`}
                       >
                         {item.status}
                       </div>
@@ -231,7 +233,7 @@ export default function SaasPageV5() {
       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
         <Link
           to="/v5"
-          className="bg-black text-[#F2EFE4] px-8 py-3 rounded-2xl font-black uppercase tracking-widest text-xs hover:shadow-xl transition-all hover:-translate-y-1 flex items-center gap-2 border border-black/10"
+          className="bg-black text-[#F2EFE4] px-8 py-3 rounded-full font-black uppercase tracking-widest text-xs hover:shadow-xl transition-all hover:-translate-y-1 flex items-center gap-2 border border-black/10"
         >
           <Home size={14} />
           Back to Landing

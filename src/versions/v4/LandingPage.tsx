@@ -3,11 +3,12 @@ import { ArrowRight, ArrowUpRight, Circle, Square, Triangle } from "lucide-react
 import { HomeWidget } from "../../components/HomeWidget";
 import { Link } from "@tanstack/react-router";
 import { useRef } from "react";
+import { useCompanyName } from "../../hooks/useCompanyName";
 
 const V5Colors = {
   bg: "#EBE5CE", // Warm Beige Paper
   black: "#0F0F0F", // Deep Black
-  orange: "#E8590C", // Not too bright orange
+  blue: "#2563EB", // Blue 600
   white: "#FFFCF5", // Cream
 };
 
@@ -20,10 +21,11 @@ export default function LandingPageV4() {
 
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 45]);
   const yMove = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const { companyName } = useCompanyName();
 
   return (
     <div
-      className="min-h-screen w-full relative font-sans selection:bg-orange-500 selection:text-white overflow-x-hidden flex flex-col"
+      className="min-h-screen w-full relative font-sans selection:bg-blue-500 selection:text-white overflow-x-hidden flex flex-col"
       style={{ backgroundColor: V5Colors.bg, color: V5Colors.black }}
     >
       {/* Navigation - using mix-blend-difference for visibility across sections */}
@@ -33,7 +35,7 @@ export default function LandingPageV4() {
             to="/"
             className="text-3xl font-black tracking-tighter uppercase leading-none block hover:scale-105 transition-transform"
           >
-            LAER
+            {companyName}
           </Link>
         </div>
 
@@ -67,13 +69,13 @@ export default function LandingPageV4() {
             className="absolute -bottom-[10%] right-[30%] w-[15%] bg-black/10 origin-bottom -rotate-3 z-10"
           />
 
-          {/* The Orange Circle - The focal point */}
+          {/* The Blue Circle - The focal point */}
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.5, delay: 0.6, type: "spring", stiffness: 100 }}
             className="absolute top-[40%] left-[45%] w-24 h-24 md:w-48 md:h-48 rounded-full z-10"
-            style={{ backgroundColor: V5Colors.orange, opacity: 0.8 }}
+            style={{ backgroundColor: V5Colors.blue, opacity: 0.8 }}
           />
 
           {/* Parallel vertical lines (Right side) */}
@@ -109,7 +111,7 @@ export default function LandingPageV4() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.8 }}
-              className="w-[300px] text-left mr-[10%] md:mb-8 text-orange-500"
+              className="w-[300px] text-left mr-[10%] md:mb-8 text-blue-500"
             >
               <p className="text-xl font-bold leading-tight mb-8">
                 We strip away the noise to reveal the underlying geometry of your data. Minimalist
@@ -165,12 +167,12 @@ export default function LandingPageV4() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.2, duration: 0.8 }}
-                className="group border-t border-[#EBE5CE]/20 pt-8 hover:border-orange-600 transition-colors"
+                className="group border-t border-[#EBE5CE]/20 pt-8 hover:border-blue-600 transition-colors"
               >
                 <div className="mb-8 relative">
-                  <item.icon className="w-16 h-16 stroke-1 text-orange-600" />
+                  <item.icon className="w-16 h-16 stroke-1 text-blue-600" />
                 </div>
-                <h3 className="text-4xl font-black tracking-tighter mb-4 group-hover:text-orange-600 transition-colors">
+                <h3 className="text-4xl font-black tracking-tighter mb-4 group-hover:text-blue-600 transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-lg opacity-60 leading-relaxed max-w-xs">{item.text}</p>
@@ -194,14 +196,14 @@ export default function LandingPageV4() {
                 style={{ rotate }}
                 className="w-full aspect-square border border-black/10 relative flex items-center justify-center bg-white/80 shadow-xl"
               >
-                <div className="absolute inset-8 border border-orange-600/20 rounded-full" />
+                <div className="absolute inset-8 border border-blue-600/20 rounded-full" />
                 <div className="absolute inset-16 border border-black/10 rotate-45" />
                 <div className="absolute inset-24 border border-black/10 rounded-full bg-black/5" />
                 <div className="absolute inset-0 border-r border-black/5" />
                 <div className="absolute inset-0 border-b border-black/5" />
               </motion.div>
               {/* Floating Label */}
-              <div className="absolute -bottom-6 -right-6 bg-orange-600/10 text-orange-600 px-6 py-3 font-black text-xl uppercase tracking-widest border border-orange-600/20">
+              <div className="absolute -bottom-6 -right-6 bg-blue-600/10 text-blue-600 px-6 py-3 font-black text-xl uppercase tracking-widest border border-blue-600/20">
                 Fig 1.0
               </div>
             </div>
@@ -210,15 +212,15 @@ export default function LandingPageV4() {
               <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-12 leading-[0.9]">
                 CONSTRUCTING
                 <br />
-                <span className="text-orange-600">INTELLIGENCE</span>
+                <span className="text-blue-600">INTELLIGENCE</span>
               </h2>
               <p className="text-2xl font-bold mb-8 leading-tight">
                 Our proprietary engine dismantles unstructured inputs and rebuilds them into
                 actionable insights.
               </p>
               <p className="text-lg mb-12 opacity-80 leading-relaxed max-w-md">
-                Like a theorem proving itself, Laer doesn't just process data—it solves it. No
-                hallucinations. Just pure, verified logic flows.
+                Like a theorem proving itself, {companyName} doesn't just process data—it solves it.
+                No hallucinations. Just pure, verified logic flows.
               </p>
               <Link
                 to="/v4/app"
@@ -243,11 +245,11 @@ export default function LandingPageV4() {
               <h2 className="text-4xl md:text-5xl font-black tracking-tighter leading-none uppercase mb-8">
                 Advancing Corporate and
                 <br />
-                <span className="text-orange-600">Legal AI through Research</span>
+                <span className="text-blue-600">Legal AI through Research</span>
               </h2>
               <Link
                 to="/v4/app"
-                className="group flex items-center gap-4 text-xl font-black hover:text-orange-600 transition-colors mt-12"
+                className="group flex items-center gap-4 text-xl font-black hover:text-blue-600 transition-colors mt-12"
               >
                 <span>READY TO BEGIN</span>
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
@@ -257,7 +259,7 @@ export default function LandingPageV4() {
             <div className="space-y-12">
               <div>
                 <h3 className="text-xl font-black uppercase tracking-tight mb-2 flex items-center gap-3">
-                  <div className="w-6 h-[1px] bg-orange-600" />
+                  <div className="w-6 h-[1px] bg-blue-600" />
                   Research
                 </h3>
                 <p className="text-lg opacity-60 leading-relaxed max-w-sm">
@@ -267,7 +269,7 @@ export default function LandingPageV4() {
 
               <div>
                 <h3 className="text-xl font-black uppercase tracking-tight mb-2 flex items-center gap-3">
-                  <div className="w-6 h-[1px] bg-orange-600" />
+                  <div className="w-6 h-[1px] bg-blue-600" />
                   Collaboration
                 </h3>
                 <p className="text-lg opacity-60 leading-relaxed max-w-sm">
@@ -282,7 +284,7 @@ export default function LandingPageV4() {
         {/* Subtle background decoration */}
         <motion.div
           style={{ y: yMove }}
-          className="absolute top-0 right-0 w-1/3 h-full bg-orange-600/5 -z-0 pointer-events-none"
+          className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/5 -z-0 pointer-events-none"
         />
       </section>
 
@@ -290,21 +292,21 @@ export default function LandingPageV4() {
       <footer className="relative z-30 w-full bg-black text-[#EBE5CE] py-12 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
           <div>
-            <h2 className="text-6xl font-black tracking-tighter mb-6">LAER</h2>
+            <h2 className="text-6xl font-black tracking-tighter mb-6">{companyName}</h2>
             <div className="flex gap-4">
-              <div className="w-6 h-6 bg-orange-600 rounded-full" />
+              <div className="w-6 h-6 bg-blue-600 rounded-full" />
               <div className="w-6 h-6 bg-[#EBE5CE] rounded-full" />
               <div className="w-6 h-6 border-2 border-[#EBE5CE] rounded-full" />
             </div>
           </div>
           <div className="flex flex-col md:flex-row gap-12 text-lg font-bold uppercase tracking-widest text-[#EBE5CE]/60">
-            <a href="#" className="hover:text-orange-500 transition-colors">
+            <a href="#" className="hover:text-blue-500 transition-colors">
               Manifesto
             </a>
-            <a href="#" className="hover:text-orange-500 transition-colors">
+            <a href="#" className="hover:text-blue-500 transition-colors">
               Pricing
             </a>
-            <a href="#" className="hover:text-orange-500 transition-colors">
+            <a href="#" className="hover:text-blue-500 transition-colors">
               Login
             </a>
           </div>

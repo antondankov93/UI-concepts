@@ -1,14 +1,16 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Box, Circle, Triangle } from "lucide-react";
 import { HomeWidget } from "../../components/HomeWidget";
+import { useCompanyName } from "../../hooks/useCompanyName";
 
 export default function LandingPageV1() {
+  const { companyName } = useCompanyName();
   return (
     <div className="min-h-screen bg-paper text-ink overflow-hidden font-sans selection:bg-ink selection:text-paper">
       {/* Navigation - Minimalist */}
       <nav className="fixed top-0 w-full z-50 p-8 flex justify-between items-end mix-blend-difference text-white/90">
         <Link to="/" className="text-4xl font-bold tracking-tighter">
-          LAER
+          {companyName}
         </Link>
         <div className="flex gap-8 text-sm font-bold tracking-widest uppercase items-center">
           <Link
@@ -32,7 +34,7 @@ export default function LandingPageV1() {
         </div>
 
         <div className="relative z-30 container mx-auto">
-          <h1 className="text-8xl md:text-[10rem] font-bold leading-[0.8] tracking-tighter text-black/90 drop-shadow-md">
+          <h1 className="text-6xl md:text-[10rem] font-medium leading-[0.8] tracking-tighter text-black/90 drop-shadow-md">
             ASCEND
             <br />
             TO
@@ -57,67 +59,80 @@ export default function LandingPageV1() {
         </div>
       </header>
 
-      {/* Strategic Discovery Section - Lightweight */}
-      <section className="min-h-screen bg-paper py-32 relative overflow-hidden flex items-center">
-        {/* Subtle background element */}
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-gray-100 to-transparent opacity-50 pointer-events-none" />
+      {/* Strategic Discovery Section - Professional */}
+      <section className="py-32 bg-gray-50 relative overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-gradient-to-b from-blue-50 to-transparent opacity-60 blur-3xl" />
+          <div className="absolute top-[40%] -left-[10%] w-[40%] h-[40%] rounded-full bg-gradient-to-t from-gray-200 to-transparent opacity-30 blur-3xl" />
+        </div>
 
-        <div className="container mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-          <div className="space-y-12">
-            <h2 className="text-5xl md:text-6xl font-light tracking-tight leading-tight">
-              Advancing
-              <br />
-              Corporate and Legal AI
-              <br />
-              <span className="font-semibold text-primary-blue">through Research</span>
-            </h2>
-          </div>
-
-          <div className="flex flex-col gap-8">
-            {/* Item 1: Research */}
-            <div className="bg-white p-8 border-l-2 border-gray-200 hover:border-primary-blue transition-colors group">
-              <div className="flex items-start gap-6">
-                <Box className="w-8 h-8 text-gray-400 group-hover:text-primary-blue transition-colors mt-1 shrink-0" />
-                <div>
-                  <h3 className="text-xl font-semibold text-ink mb-3 group-hover:text-primary-blue transition-colors">
-                    Research
-                  </h3>
-                  <p className="text-gray-600 font-light leading-relaxed">
-                    Advancing foundational research in AI for complex legal and corporate
-                    challenges.
-                  </p>
-                </div>
-              </div>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="flex flex-col md:flex-row gap-20 items-start">
+            <div className="md:w-5/12 sticky top-32">
+              <h2 className="text-5xl md:text-7xl font-light tracking-tight leading-[1.1] mb-8 text-ink">
+                Advancing
+                <span className="block font-semibold text-primary-blue">Legal AI</span>
+                through Research
+              </h2>
+              <p className="text-xl text-gray-600 leading-relaxed max-w-md border-l-4 border-primary-blue pl-6">
+                We are bridging the gap between theoretical AI capabilities and practical legal
+                application.
+              </p>
             </div>
 
-            {/* Item 2: Collaboration */}
-            <div className="bg-white p-8 border-l-2 border-gray-200 hover:border-primary-blue transition-colors group">
-              <div className="flex items-start gap-6">
-                <Circle className="w-8 h-8 text-gray-400 group-hover:text-primary-blue transition-colors mt-1 shrink-0" />
-                <div>
-                  <h3 className="text-xl font-semibold text-ink mb-3 group-hover:text-primary-blue transition-colors">
-                    Collaboration
-                  </h3>
-                  <p className="text-gray-600 font-light leading-relaxed">
-                    Co-developing the next-generation of AI solutions by bringing together
-                    researchers and practitioners.
-                  </p>
+            <div className="md:w-7/12 grid gap-6">
+              {/* Item 1: Research */}
+              <div className="bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group translate-x-0 hover:-translate-y-1">
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300">
+                    <Box className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-ink mb-3 group-hover:text-primary-blue transition-colors">
+                      Research
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-lg">
+                      Advancing foundational research in AI for complex legal and corporate
+                      challenges.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Item 3: Education */}
-            <div className="bg-white p-8 border-l-2 border-gray-200 hover:border-primary-blue transition-colors group">
-              <div className="flex items-start gap-6">
-                <Triangle className="w-8 h-8 text-gray-400 group-hover:text-primary-blue transition-colors mt-1 shrink-0" />
-                <div>
-                  <h3 className="text-xl font-semibold text-ink mb-3 group-hover:text-primary-blue transition-colors">
-                    Education
-                  </h3>
-                  <p className="text-gray-600 font-light leading-relaxed">
-                    Committed to equipping legal professionals with the practical knowledge to
-                    engage critically with AI.
-                  </p>
+              {/* Item 2: Collaboration */}
+              <div className="bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group translate-x-0 hover:-translate-y-1">
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300">
+                    <Circle className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-ink mb-3 group-hover:text-primary-blue transition-colors">
+                      Collaboration
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-lg">
+                      Co-developing the next-generation of AI solutions by bringing together
+                      researchers and practitioners.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Item 3: Education */}
+              <div className="bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group translate-x-0 hover:-translate-y-1">
+                <div className="flex items-start gap-6">
+                  <div className="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300">
+                    <Triangle className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-ink mb-3 group-hover:text-primary-blue transition-colors">
+                      Education
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-lg">
+                      Committed to equipping legal professionals with the practical knowledge to
+                      engage critically with AI.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -125,12 +140,14 @@ export default function LandingPageV1() {
         </div>
       </section>
 
-      <footer className="bg-gray-50 text-ink py-20 border-t border-gray-200">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-end">
+      <footer className="bg-gray-50 text-ink pt-20 border-t border-gray-200">
+        <div className=" mx-auto px-6 flex flex-col md:flex-row justify-between items-end">
           <div>
-            <h3 className="text-9xl font-medium leading-none tracking-wider text-ink">LAER</h3>
+            <h3 className="text-9xl font-medium leading-none tracking-wider text-ink">
+              {companyName}
+            </h3>
           </div>
-          <div className="flex gap-4 opacity-50">
+          <div className="flex mb-4 gap-4 opacity-50">
             <div className="w-3 h-3 rounded-full bg-gray-300"></div>
             <div className="w-3 h-3 rounded-full bg-gray-400"></div>
             <div className="w-3 h-3 rounded-full bg-gray-500"></div>

@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { HomeWidget } from "../../components/HomeWidget";
 import { useEffect, useState } from "react";
+import { useCompanyName } from "../../hooks/useCompanyName";
 
 const V6Colors = {
   bg: "#F2EFE4", // Light Cream/Paper
@@ -16,6 +17,7 @@ export default function LandingPageV5() {
   const [books, setBooks] = useState<
     { width: number; height: number; gap: number; color: string; rotation: number }[]
   >([]);
+  const { companyName } = useCompanyName();
 
   useEffect(() => {
     // Generate random "books" for the background
@@ -53,26 +55,26 @@ export default function LandingPageV5() {
             to="/"
             className="text-3xl font-black tracking-tighter uppercase leading-none block hover:tracking-[-0.05em] transition-all duration-500 bg-[#F2EFE4]"
           >
-            LAER
+            {companyName}
           </Link>
         </div>
 
         <div className="pointer-events-auto flex items-center gap-6">
           <div className="hidden md:flex gap-8 text-xs font-black uppercase tracking-widest bg-[#F2EFE4]/80 backdrop-blur-md px-8 py-3 rounded-full border border-black/5 shadow-sm">
-            <Link to="/" className="hover:text-[#A855F7] transition-colors">
+            <Link to="/" className="hover:text-[#6B21A8] transition-colors">
               Manifesto
             </Link>
-            <Link to="/" className="hover:text-[#A855F7] transition-colors">
+            <Link to="/" className="hover:text-[#6B21A8] transition-colors">
               Research
             </Link>
-            <Link to="/" className="hover:text-[#A855F7] transition-colors">
+            <Link to="/" className="hover:text-[#6B21A8] transition-colors">
               Lab
             </Link>
           </div>
 
           <Link
             to="/v5/app"
-            className="px-8 py-3 bg-[#141414] text-[#F2EFE4] rounded-full font-bold uppercase text-xs tracking-widest hover:bg-[#A855F7] transition-all flex items-center gap-3 group shadow-xl"
+            className="px-8 py-3 bg-[#141414] text-[#F2EFE4] rounded-full font-bold uppercase text-xs tracking-widest hover:bg-[#6B21A8] transition-all flex items-center gap-3 group shadow-xl"
           >
             <span>Launch APP</span>
             <ArrowUpRight className="w-4 h-4 group-hover:rotate-45 transition-transform" />
@@ -142,7 +144,7 @@ export default function LandingPageV5() {
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ delay: 1.5, duration: 1.5, ease: "easeInOut" }}
-                  className="absolute -bottom-3 left-0 h-2 bg-gradient-to-r from-purple-400 to-orange-400 -z-10"
+                  className="absolute -bottom-3 left-0 h-2 bg-gradient-to-r from-purple-800 to-orange-400 -z-10"
                 />
               </span>
             </motion.h1>
@@ -173,8 +175,8 @@ export default function LandingPageV5() {
       </section>
 
       {/* INFO BLOCKS SECTION */}
-      <section className="relative z-20 w-full bg-[#F2EFE4] py-32 px-6 md:px-12 border-t border-black/5">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative z-20 bg-[#F2EFE4] py-32 px-6 md:px-12 border-t border-black/5">
+        <div className="max-w-7xl mx-auto ">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24">
             {[
               {
@@ -215,15 +217,15 @@ export default function LandingPageV5() {
                     initial={{ x: "-100%" }}
                     whileInView={{ x: "100%" }}
                     transition={{ duration: 1.5, delay: i * 0.2 + 0.5 }}
-                    className="absolute inset-0 bg-[#A855F7]"
+                    className="absolute inset-0 bg-[#6B21A8]"
                   />
                 </div>
 
                 <p className="text-xl leading-relaxed font-medium text-black/70">{block.text}</p>
 
                 {/* Read More Arrow */}
-                <div className="flex items-center gap-3 font-bold uppercase text-xs tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 text-[#A855F7]">
-                  <span className="border-b-2 border-[#A855F7]/20">Explore Insight</span>
+                <div className="flex items-center gap-3 font-bold uppercase text-xs tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 text-[#6B21A8]">
+                  <span className="border-b-2 border-[#6B21A8]/20">Explore Insight</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </div>
               </motion.div>
@@ -233,19 +235,19 @@ export default function LandingPageV5() {
       </section>
 
       {/* RESEARCH IMAGE SECTION */}
-      <section className="relative z-20 w-full bg-[#F2EFE4] py-24 px-6 md:px-12 border-t border-black/10">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative z-20 bg-[#F2EFE4] py-24 px-6 md:px-12 border-t border-black/10">
+        <div className="max-w-7xl mx-auto w-3/4">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
           >
             <div className="flex flex-col gap-6 order-2 md:order-1">
               <div className="flex items-center gap-4">
-                <div className="h-px w-8 bg-[#A855F7]" />
-                <span className="text-xs font-black tracking-[0.4em] uppercase text-[#A855F7]">
+                <div className="h-px w-8 bg-[#6B21A8]" />
+                <span className="text-xs font-black tracking-[0.4em] uppercase text-[#6B21A8]">
                   Methodology
                 </span>
               </div>
@@ -267,13 +269,13 @@ export default function LandingPageV5() {
                   <span className="text-lg font-bold group-hover:translate-x-2 transition-transform">
                     Legal Ontology
                   </span>
-                  <ArrowUpRight className="w-5 h-5 opacity-20 group-hover:opacity-100 group-hover:text-[#A855F7] transition-all" />
+                  <ArrowUpRight className="w-5 h-5 opacity-20 group-hover:opacity-100 group-hover:text-[#6B21A8] transition-all" />
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-black/5 group cursor-pointer">
                   <span className="text-lg font-bold group-hover:translate-x-2 transition-transform">
                     Document Architecture
                   </span>
-                  <ArrowUpRight className="w-5 h-5 opacity-20 group-hover:opacity-100 group-hover:text-[#A855F7] transition-all" />
+                  <ArrowUpRight className="w-5 h-5 opacity-20 group-hover:opacity-100 group-hover:text-[#6B21A8] transition-all" />
                 </div>
               </div>
             </div>

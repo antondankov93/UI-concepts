@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Circle, Triangle, Square } from "lucide-react";
+import { ArrowRight, Circle, Triangle, Square, Shield, Award, Globe } from "lucide-react";
 import { HomeWidget } from "../../components/HomeWidget";
 import { Link } from "@tanstack/react-router";
+import { useCompanyName } from "../../hooks/useCompanyName";
 
 const V4Colors = {
   bg: "#FFFFFF", // White
@@ -13,34 +14,37 @@ const V4Colors = {
 };
 
 export default function LandingPageV3() {
+  const { companyName } = useCompanyName();
   return (
     <div
-      className="min-h-screen w-full relative font-sans selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden"
+      className="min-h-screen w-full relative font-serif selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden"
       style={{ backgroundColor: V4Colors.bg, color: V4Colors.text }}
     >
       {/* Navigation */}
       <nav className="fixed top-2 left-0 w-full p-6 py-3 flex justify-between items-center z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
         <Link to="/" className="text-3xl font-bold tracking-tight text-slate-900">
-          LAER
+          {companyName}
         </Link>
-        <Link
-          to="/v3/app"
-          className="px-6 py-2 rounded-full bg-slate-900 text-white font-bold uppercase text-sm hover:bg-blue-600 transition-colors"
-        >
-          Launch APP
-        </Link>
+        <div className="flex gap-4 items-center">
+          <Link
+            to="/v3/app"
+            className="px-6 py-2 rounded-full bg-slate-900 text-white font-bold uppercase text-sm hover:bg-blue-600 transition-colors"
+          >
+            Launch APP
+          </Link>
+        </div>
       </nav>
 
       {/* Hero Section */}
-      <header className="relative w-full min-h-screen flex flex-col lg:flex-row pt-24 lg:pt-0">
+      <header className="relative w-full min-h-screen flex flex-col lg:flex-row pt-20 lg:pt-0">
         {/* Left Side: Typography */}
-        <div className="w-full lg:w-1/2 flex flex-col justify-center px-8 lg:px-24 z-10 bg-white">
+        <div className="w-full lg:w-1/2 flex flex-col justify-center px-8 lg:px-16 z-10 bg-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-6 text-slate-900">
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6 text-slate-900">
               Data <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-400">
                 Shapes
@@ -48,7 +52,7 @@ export default function LandingPageV3() {
               <br />
               Logic
             </h1>
-            <p className="text-lg md:text-xl text-slate-600 max-w-md mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-600 max-w-md mb-6 leading-relaxed">
               Transforming unstructured chaos into precision through advanced AI analysis.
             </p>
 
@@ -63,14 +67,14 @@ export default function LandingPageV3() {
         </div>
 
         {/* Right Side: Abstract Composition */}
-        <div className="w-full lg:w-1/2 min-h-[50vh] lg:h-auto relative overflow-hidden flex items-center justify-center bg-slate-50">
+        <div className="w-full lg:w-1/2 min-h-[40vh] lg:h-auto relative overflow-hidden flex items-center justify-center bg-slate-50">
           {/* Gradient blobs background */}
           <div className="absolute inset-0 opacity-30">
             <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-blue-100 to-transparent"></div>
             <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-tr from-orange-100 to-transparent"></div>
           </div>
 
-          <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] flex items-center justify-center">
+          <div className="relative w-[260px] h-[260px] md:w-[380px] md:h-[380px] flex items-center justify-center">
             {/* Main Ring */}
             <motion.div
               animate={{ rotate: 360 }}
@@ -111,23 +115,73 @@ export default function LandingPageV3() {
         </div>
       </header>
 
-      {/* Marquee Strip */}
-      <div className="w-full bg-slate-900 py-6 overflow-hidden">
-        <motion.div
-          animate={{ x: [0, -1000] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="whitespace-nowrap flex gap-16 text-slate-400 text-lg font-medium tracking-wide uppercase"
-        >
-          {Array.from({ length: 10 }).map((_, i) => (
-            <span key={i} className="flex items-center gap-4">
-              <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-              Modern Analytics v4.0
-              <span className="w-2 h-2 rounded-full bg-orange-400"></span>
-              Data Driven Logic
+      {/* Trust Indicators */}
+      <section className="w-full bg-slate-900 py-20 border-y border-slate-800 relative overflow-hidden">
+        {/* Background glow effects */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
+          >
+            <span className="text-slate-400 text-sm font-bold uppercase tracking-[0.2em]">
+              Trusted by Industry Leaders
             </span>
-          ))}
-        </motion.div>
-      </div>
+          </motion.div>
+
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+            {[
+              {
+                label: "Enterprise Security",
+                icon: Shield,
+                color: "text-blue-400",
+                iconBg: "bg-blue-500/10",
+                shadow: "hover:shadow-blue-500/10",
+                hoverBorder: "group-hover:border-blue-500/30",
+              },
+              {
+                label: "ISO 27001 Certified",
+                icon: Award,
+                color: "text-orange-400",
+                iconBg: "bg-orange-500/10",
+                shadow: "hover:shadow-orange-500/10",
+                hoverBorder: "group-hover:border-orange-500/30",
+              },
+              {
+                label: "GDPR Compliant",
+                icon: Globe,
+                color: "text-emerald-400",
+                iconBg: "bg-emerald-500/10",
+                shadow: "hover:shadow-emerald-500/10",
+                hoverBorder: "group-hover:border-emerald-500/30",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -4 }}
+                className={`group flex items-center gap-5 px-8 py-5 rounded-2xl bg-slate-900/80 backdrop-blur-xl border border-slate-800 ${item.hoverBorder} ${item.shadow} transition-all duration-300 shadow-lg cursor-default`}
+              >
+                <div
+                  className={`p-3 rounded-xl ${item.iconBg} border border-white/5 group-hover:border-white/10 transition-colors`}
+                >
+                  <item.icon className={`w-6 h-6 ${item.color}`} />
+                </div>
+                <span className="text-slate-300 font-medium text-lg tracking-wide group-hover:text-white transition-colors">
+                  {item.label}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Features Section */}
       <section className="py-24 relative overflow-hidden bg-white">
@@ -224,7 +278,9 @@ export default function LandingPageV3() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex flex-col items-start">
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">LAER.AI</h2>
+              <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
+                {companyName}
+              </h2>
               <p className="text-sm text-slate-500">© 2026 All rights reserved</p>
             </div>
 

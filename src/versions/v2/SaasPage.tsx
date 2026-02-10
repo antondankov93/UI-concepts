@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { HomeWidget } from "../../components/HomeWidget";
 import { Home, PieChart, Settings, Users, Bell, Search } from "lucide-react";
 import { motion } from "framer-motion";
+import { useCompanyName } from "../../hooks/useCompanyName";
 
 const V3Colors = {
   bg: "#F3EEE8", // Beige paper
@@ -13,6 +14,7 @@ const V3Colors = {
 };
 
 export default function SaasPageV2() {
+  const { companyName } = useCompanyName();
   return (
     <div
       className="min-h-screen w-full flex flex-col md:flex-row font-sans selection:bg-black selection:text-white"
@@ -33,7 +35,7 @@ export default function SaasPageV2() {
               className="w-2.5 h-2.5 rounded-full"
               style={{ backgroundColor: V3Colors.blue }}
             ></div>
-            Laer
+            {companyName}
           </Link>
         </div>
 

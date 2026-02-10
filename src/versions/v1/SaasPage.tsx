@@ -1,15 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import { Home } from "lucide-react";
 import { HomeWidget } from "../../components/HomeWidget";
+import { useCompanyName } from "../../hooks/useCompanyName";
 
 export default function SaasPageV1() {
+  const { companyName } = useCompanyName();
   return (
     <div className="min-h-screen bg-paper text-ink font-sans selection:bg-primary-blue selection:text-white">
       <div className="h-screen flex flex-col">
         {/* Header */}
         <div className="h-18 border-b border-gray-200 flex items-center justify-between px-6 bg-white/50 backdrop-blur-sm z-20">
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-bold tracking-tight">LAER</h1>
+            <h1 className="text-xl font-bold tracking-tight">{companyName}</h1>
             <span className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-500 font-medium">
               APP
             </span>

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Home, PieChart, Settings, Users, Bell, Search } from "lucide-react";
 import { motion } from "framer-motion";
+import { useCompanyName } from "../../hooks/useCompanyName";
 
 const V4Colors = {
   bg: "#FFFFFF", // White
@@ -15,9 +16,10 @@ const V4Colors = {
 };
 
 export default function SaasPageV3() {
+  const { companyName } = useCompanyName();
   return (
     <div
-      className="min-h-screen w-full flex flex-col md:flex-row font-sans selection:bg-blue-100 selection:text-blue-900 overflow-hidden"
+      className="min-h-screen w-full flex flex-col md:flex-row font-serif selection:bg-blue-100 selection:text-blue-900 overflow-hidden"
       style={{ backgroundColor: V4Colors.bg, color: V4Colors.text }}
     >
       {/* Sidebar */}
@@ -27,7 +29,7 @@ export default function SaasPageV3() {
             to="/v3"
             className="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-2"
           >
-            LAER
+            {companyName}
           </Link>
         </div>
 

@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { HomeWidget } from "../../components/HomeWidget";
 import { Home, Search, Layers, Users, Settings, Bell, Book, BarChart2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useCompanyName } from "../../hooks/useCompanyName";
 
 const V7Colors = {
   bg: "#FFFFFF",
@@ -11,6 +12,7 @@ const V7Colors = {
 };
 
 export default function SaasPageV6() {
+  const { companyName } = useCompanyName();
   return (
     <div
       className="min-h-screen w-full flex flex-col md:flex-row font-sans selection:bg-black selection:text-white overflow-hidden"
@@ -23,7 +25,7 @@ export default function SaasPageV6() {
             to="/v6"
             className="text-lg font-light tracking-[0.2em] uppercase leading-none hover:opacity-50 transition-opacity"
           >
-            Laer
+            {companyName}
           </Link>
         </div>
 

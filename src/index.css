@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700;900&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -13,6 +13,7 @@
   --color-ai-orange: #ff5f1f;
 
   --font-sans: "Jost", sans-serif;
+  --font-serif: "Merriweather", serif;
 
   --animate-float: float 6s ease-in-out infinite;
 

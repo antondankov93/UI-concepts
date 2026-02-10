@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Circle, Square, Triangle } from "lucide-react";
 import { HomeWidget } from "../../components/HomeWidget";
 import { Link } from "@tanstack/react-router";
+import { useCompanyName } from "../../hooks/useCompanyName";
 
 const V3Colors = {
   bg: "#F3EEE8", // Beige paper
@@ -14,6 +15,7 @@ const V3Colors = {
 };
 
 export default function LandingPageV2() {
+  const { companyName } = useCompanyName();
   return (
     <div
       className="min-h-screen w-full relative overflow-x-hidden font-sans selection:bg-black selection:text-white"
@@ -22,14 +24,16 @@ export default function LandingPageV2() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 mix-blend-multiply">
         <Link to="/" className="text-2xl font-bold tracking-tighter uppercase">
-          LAER
+          {companyName}
         </Link>
-        <Link
-          to="/v2/app"
-          className="px-6 py-2 border-2 border-[#16161D] rounded-full font-bold uppercase text-sm hover:bg-[#16161D] hover:text-[#F3EEE8] transition-colors"
-        >
-          Launch APP
-        </Link>
+        <div className="flex gap-4 items-center">
+          <Link
+            to="/v2/app"
+            className="px-6 py-2 border-2 border-[#16161D] rounded-full font-bold uppercase text-sm hover:bg-[#16161D] hover:text-[#F3EEE8] transition-colors"
+          >
+            Launch APP
+          </Link>
+        </div>
       </nav>
 
       {/* Hero Section */}
@@ -203,7 +207,7 @@ export default function LandingPageV2() {
       <footer className="py-12 border-t" style={{ borderColor: V3Colors.border }}>
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
-            <div className="text-3xl font-bold tracking-tighter uppercase mb-2">Laer</div>
+            <div className="text-3xl font-bold tracking-tighter uppercase mb-2">{companyName}</div>
           </div>
 
           <div className="flex gap-6 font-bold uppercase tracking-wider text-sm">
