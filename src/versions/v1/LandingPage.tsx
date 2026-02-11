@@ -60,78 +60,100 @@ export default function LandingPageV1() {
       </header>
 
       {/* Strategic Discovery Section - Professional */}
-      <section className="py-32 bg-gray-50 relative overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-gradient-to-b from-blue-50 to-transparent opacity-60 blur-3xl" />
-          <div className="absolute top-[40%] -left-[10%] w-[40%] h-[40%] rounded-full bg-gradient-to-t from-gray-200 to-transparent opacity-30 blur-3xl" />
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Subtle geometric background */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.02]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, .05) 25%, rgba(0, 0, 0, .05) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, .05) 75%, rgba(0, 0, 0, .05) 76%, transparent 77%, transparent),
+            linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, .05) 25%, rgba(0, 0, 0, .05) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, .05) 75%, rgba(0, 0, 0, .05) 76%, transparent 77%, transparent)`,
+              backgroundSize: "60px 60px",
+            }}
+          />
         </div>
 
+        {/* Subtle blue accent */}
+        <div className="absolute top-[20%] right-[10%] w-96 h-96 bg-primary-blue opacity-[0.03] rounded-full blur-3xl" />
+
         <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col md:flex-row gap-20 items-start">
+          <div className="flex flex-col md:flex-row gap-16 items-start">
             <div className="md:w-5/12 sticky top-32">
-              <h2 className="text-5xl md:text-7xl font-light tracking-tight leading-[1.1] mb-8 text-ink">
+              <h2 className="text-4xl md:text-6xl font-light tracking-tight leading-[1.1] mb-6 text-ink">
                 Advancing
                 <span className="block font-semibold text-primary-blue">Legal AI</span>
                 through Research
               </h2>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-md border-l-4 border-primary-blue pl-6">
-                We are bridging the gap between theoretical AI capabilities and practical legal
+              <p className="text-lg text-gray-600 leading-relaxed max-w-md border-l-2 border-primary-blue pl-4">
+                Bridging the gap between theoretical AI capabilities and practical legal
                 application.
               </p>
             </div>
 
-            <div className="md:w-7/12 grid gap-6">
+            <div className="md:w-7/12 grid gap-4">
               {/* Item 1: Research */}
-              <div className="bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group translate-x-0 hover:-translate-y-1">
-                <div className="flex items-start gap-6">
-                  <div className="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300">
-                    <Box className="w-6 h-6" />
+              <div className="group cursor-default bg-gray-50 border border-gray-200 p-6 transition-all duration-300 hover:border-primary-blue hover:shadow-lg hover:-translate-y-0.5">
+                <div className="flex items-start gap-5">
+                  {/* Icon */}
+                  <div className="w-12 h-12 shrink-0 bg-primary-blue/10 flex items-center justify-center transition-all duration-300 group-hover:bg-primary-blue group-hover:scale-110">
+                    <Box className="w-6 h-6 text-primary-blue group-hover:text-white transition-colors" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-ink mb-3 group-hover:text-primary-blue transition-colors">
-                      Research
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed text-lg">
+
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-ink mb-2 tracking-tight">Research</h3>
+                    <p className="text-gray-600 leading-relaxed text-sm">
                       Advancing foundational research in AI for complex legal and corporate
                       challenges.
                     </p>
+                  </div>
+
+                  {/* Number */}
+                  <div className="text-4xl font-bold text-gray-200 group-hover:text-primary-blue/20 leading-none transition-colors">
+                    01
                   </div>
                 </div>
               </div>
 
               {/* Item 2: Collaboration */}
-              <div className="bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group translate-x-0 hover:-translate-y-1">
-                <div className="flex items-start gap-6">
-                  <div className="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300">
-                    <Circle className="w-6 h-6" />
+              <div className="group cursor-default bg-gray-50 border border-gray-200 p-6 transition-all duration-300 hover:border-primary-blue hover:shadow-lg hover:-translate-y-0.5">
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 shrink-0 bg-primary-blue/10 flex items-center justify-center transition-all duration-300 group-hover:bg-primary-blue group-hover:scale-110">
+                    <Circle className="w-6 h-6 text-primary-blue group-hover:text-white transition-colors" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-ink mb-3 group-hover:text-primary-blue transition-colors">
+
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-ink mb-2 tracking-tight">
                       Collaboration
                     </h3>
-                    <p className="text-gray-600 leading-relaxed text-lg">
-                      Co-developing the next-generation of AI solutions by bringing together
+                    <p className="text-gray-600 leading-relaxed text-sm">
+                      Co-developing the next generation of AI solutions by bringing together
                       researchers and practitioners.
                     </p>
+                  </div>
+
+                  <div className="text-4xl font-bold text-gray-200 group-hover:text-primary-blue/20 leading-none transition-colors">
+                    02
                   </div>
                 </div>
               </div>
 
               {/* Item 3: Education */}
-              <div className="bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group translate-x-0 hover:-translate-y-1">
-                <div className="flex items-start gap-6">
-                  <div className="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-primary-blue group-hover:text-white transition-colors duration-300">
-                    <Triangle className="w-6 h-6" />
+              <div className="group cursor-default bg-gray-50 border border-gray-200 p-6 transition-all duration-300 hover:border-primary-blue hover:shadow-lg hover:-translate-y-0.5">
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 shrink-0 bg-primary-blue/10 flex items-center justify-center transition-all duration-300 group-hover:bg-primary-blue group-hover:scale-110">
+                    <Triangle className="w-6 h-6 text-primary-blue group-hover:text-white transition-colors" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-ink mb-3 group-hover:text-primary-blue transition-colors">
-                      Education
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed text-lg">
-                      Committed to equipping legal professionals with the practical knowledge to
-                      engage critically with AI.
+
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-ink mb-2 tracking-tight">Education</h3>
+                    <p className="text-gray-600 leading-relaxed text-sm">
+                      Equipping legal professionals with practical knowledge to engage critically
+                      with AI systems.
                     </p>
+                  </div>
+
+                  <div className="text-4xl font-bold text-gray-200 group-hover:text-primary-blue/20 leading-none transition-colors">
+                    03
                   </div>
                 </div>
               </div>

@@ -229,7 +229,7 @@ export default function LandingPageV7() {
                 <button
                   key={v}
                   onClick={() => setHeroVariant(v)}
-                  className="relative px-3 py-1.5 transition-all duration-300"
+                  className="relative px-3 py-1.5 transition-all duration-300 cursor-pointer"
                   style={{
                     backgroundColor: isActive ? V7.ink : "transparent",
                     color: isActive ? V7.parchment : V7.warmGray,
@@ -543,10 +543,10 @@ export default function LandingPageV7() {
               {/* Text content */}
               <div className="flex flex-1 flex-col p-8">
                 <div className="mb-4 flex items-center gap-3">
-                  <span
-                    className="inline-block h-3 w-3 rounded-full"
-                    style={{ backgroundColor: pillar.accent }}
-                  />
+                  {/*<span*/}
+                  {/*  className="inline-block h-3 w-3 rounded-full"*/}
+                  {/*  style={{ backgroundColor: pillar.accent }}*/}
+                  {/*/>*/}
                   <h3
                     className="font-normal text-2xl tracking-tight"
                     style={{ fontFamily: "Merriweather, serif" }}

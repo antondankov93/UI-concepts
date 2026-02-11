@@ -108,7 +108,7 @@ export default function SaasPageV7() {
   return (
     <div
       className="flex min-h-screen w-full flex-col overflow-hidden font-sans md:flex-row"
-      style={{ backgroundColor: V7.bg, color: V7.ink }}
+      style={{ color: V7.ink }}
     >
       {/* ========== SIDEBAR ========== */}
       <aside
@@ -192,7 +192,7 @@ export default function SaasPageV7() {
       </aside>
 
       {/* ========== MAIN CONTENT ========== */}
-      <main className="flex flex-1 flex-col overflow-hidden" style={{ backgroundColor: V7.bg }}>
+      <main className="flex flex-1 flex-col overflow-hidden">
         {/* Header Bar */}
         <header
           className="sticky top-0 z-10 flex items-center justify-between px-5 py-3"
