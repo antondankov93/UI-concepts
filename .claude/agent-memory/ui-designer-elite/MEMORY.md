@@ -26,6 +26,26 @@
   - Border language: 2px solid strokes matching illustration weight
   - SaaS page: Subdued warm neutrals, square corners (no rounded), serif headings only
   - [details](./v7-design.md)
+- **V8 - "The Moire"**: Optical line art / moire pattern aesthetic, lightweight and mysterious
+  - Palette: cool gray bg #EDEDEB, graphite #1C1C1C, mist #C5C5C1, accent (muted indigo) #6B7B8F
+  - Typography: Jost only, font-extralight/font-light weights for ethereal quality
+  - Border language: 1px, very subtle borderSoft #E0DFDC / borderFaint #EAEAE7
+  - SVG decorations: MoireWaves (flowing parallel lines), MoireOrb (concentric wobbling ellipses)
+  - SaaS: Ultra-lightweight, gap-px grid patterns, near-invisible borders, SubtleMoire decoration
+  - Reference images: "Animals in Moire" by Andrea Minini + optical illusion poster art
+  - [details](./v8-design.md)
+
+- **V12 - "The Threshold"**: Constructivist Minimalism -- editorial illustration collage art
+  - Palette: warm cream #F0EDE6, vermillion #E63226, Klein blue #3D52D5, graphite #141414
+  - Typography: Jost only, font-light for display, normal weight for body. tracking-tight headings.
+  - Border language: 1px warm borders #D8D4CD, zero border-radius everywhere (square corners)
+  - Motif: Massive color blocks with tiny human-scale figures -- scale contrast as metaphor
+  - Images: 6 editorial illustrations (Eiko Ojala style) placed as architectural elements
+  - Hero: image1 as full background with cream gradient overlay for text readability
+  - Sections: image2 (Research), image3 (Collaboration), image5 (Education), image4 (CTA)
+  - Footer: image6 in left bottom corner as signature mark
+  - SaaS: Warm cream bg #EDEBE5, white cards, vermillion accents for active/primary states
+  - [details](./v12-design.md)
 
 ## Key Conventions
 - Always use `useCompanyName` hook for brand name

@@ -372,7 +372,7 @@ export default function SaasPageV7() {
                 {/* Minimalist chart visualization */}
                 <div
                   className="flex h-44 items-end justify-between gap-1.5 border-b pb-4"
-                  style={{ borderColor: V7.border }}
+                  style={{ borderColor: V7.borderLight }}
                 >
                   {Array.from({ length: 24 }).map((_, i) => {
                     const height = 15 + Math.sin(i * 0.5 + 1) * 30 + Math.random() * 25;
@@ -418,7 +418,7 @@ export default function SaasPageV7() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="flex flex-col border p-5 md:col-span-4"
-                style={{ backgroundColor: V7.cardBg, borderColor: V7.border }}
+                style={{ backgroundColor: V7.cardBg, borderColor: V7.borderLight }}
               >
                 <div className="mb-4 flex items-center justify-between">
                   <h2
@@ -439,12 +439,12 @@ export default function SaasPageV7() {
                     <button
                       key={item.label}
                       className="group flex w-full items-center justify-between border p-3 text-left transition-all"
-                      style={{ borderColor: V7.border }}
+                      style={{ borderColor: V7.borderLight }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.borderColor = V7.terracotta;
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor = V7.border;
+                        e.currentTarget.style.borderColor = V7.borderLight;
                       }}
                     >
                       <div>
@@ -465,11 +465,11 @@ export default function SaasPageV7() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
                 className="border p-5 md:col-span-12"
-                style={{ backgroundColor: V7.cardBg, borderColor: V7.border }}
+                style={{ backgroundColor: V7.cardBg, borderColor: V7.borderLight }}
               >
                 <div
                   className="mb-4 flex items-center justify-between border-b pb-4"
-                  style={{ borderColor: V7.border }}
+                  style={{ borderColor: V7.borderLight }}
                 >
                   <h2
                     className="font-normal text-base tracking-tight"
@@ -490,7 +490,7 @@ export default function SaasPageV7() {
                     <div
                       key={i}
                       className="group flex cursor-pointer items-center justify-between border-b px-1 py-3 transition-colors last:border-b-0"
-                      style={{ borderColor: V7.border }}
+                      style={{ borderColor: V7.borderLight }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.backgroundColor = `${V7.bg}`;
                       }}
@@ -501,7 +501,7 @@ export default function SaasPageV7() {
                       <div className="flex items-center gap-4">
                         <div
                           className="flex h-9 w-9 items-center justify-center rounded-sm border transition-colors"
-                          style={{ borderColor: V7.border }}
+                          style={{ borderColor: V7.borderLight }}
                         >
                           <FileText className="h-4 w-4 opacity-40" />
                         </div>
@@ -521,7 +521,7 @@ export default function SaasPageV7() {
                         <div className="hidden items-center gap-2 md:flex">
                           <div
                             className="h-1.5 w-24 overflow-hidden rounded-full"
-                            style={{ backgroundColor: V7.border }}
+                            style={{ backgroundColor: V7.borderLight }}
                           >
                             <div
                               className="h-full rounded-full transition-all duration-500"

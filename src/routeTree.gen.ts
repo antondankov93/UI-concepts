@@ -11,30 +11,41 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as V8RouteImport } from './routes/v8'
 import { Route as V7RouteImport } from './routes/v7'
 import { Route as V6RouteImport } from './routes/v6'
 import { Route as V5RouteImport } from './routes/v5'
 import { Route as V4RouteImport } from './routes/v4'
 import { Route as V3RouteImport } from './routes/v3'
 import { Route as V2RouteImport } from './routes/v2'
+import { Route as V12RouteImport } from './routes/v12'
 import { Route as V1RouteImport } from './routes/v1'
 import { Route as IndexRouteImport } from './routes/index'
 
+const V8IndexLazyRouteImport = createFileRoute('/v8/')()
 const V7IndexLazyRouteImport = createFileRoute('/v7/')()
 const V6IndexLazyRouteImport = createFileRoute('/v6/')()
 const V5IndexLazyRouteImport = createFileRoute('/v5/')()
 const V4IndexLazyRouteImport = createFileRoute('/v4/')()
 const V3IndexLazyRouteImport = createFileRoute('/v3/')()
 const V2IndexLazyRouteImport = createFileRoute('/v2/')()
+const V12IndexLazyRouteImport = createFileRoute('/v12/')()
 const V1IndexLazyRouteImport = createFileRoute('/v1/')()
+const V8AppLazyRouteImport = createFileRoute('/v8/app')()
 const V7AppLazyRouteImport = createFileRoute('/v7/app')()
 const V6AppLazyRouteImport = createFileRoute('/v6/app')()
 const V5AppLazyRouteImport = createFileRoute('/v5/app')()
 const V4AppLazyRouteImport = createFileRoute('/v4/app')()
 const V3AppLazyRouteImport = createFileRoute('/v3/app')()
 const V2AppLazyRouteImport = createFileRoute('/v2/app')()
+const V12AppLazyRouteImport = createFileRoute('/v12/app')()
 const V1AppLazyRouteImport = createFileRoute('/v1/app')()
 
+const V8Route = V8RouteImport.update({
+  id: '/v8',
+  path: '/v8',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const V7Route = V7RouteImport.update({
   id: '/v7',
   path: '/v7',
@@ -65,6 +76,11 @@ const V2Route = V2RouteImport.update({
   path: '/v2',
   getParentRoute: () => rootRouteImport,
 } as any)
+const V12Route = V12RouteImport.update({
+  id: '/v12',
+  path: '/v12',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const V1Route = V1RouteImport.update({
   id: '/v1',
   path: '/v1',
@@ -75,6 +91,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+const V8IndexLazyRoute = V8IndexLazyRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => V8Route,
+} as any).lazy(() => import('./routes/v8/index.lazy').then((d) => d.Route))
 const V7IndexLazyRoute = V7IndexLazyRouteImport.update({
   id: '/',
   path: '/',
@@ -105,11 +126,21 @@ const V2IndexLazyRoute = V2IndexLazyRouteImport.update({
   path: '/',
   getParentRoute: () => V2Route,
 } as any).lazy(() => import('./routes/v2/index.lazy').then((d) => d.Route))
+const V12IndexLazyRoute = V12IndexLazyRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => V12Route,
+} as any).lazy(() => import('./routes/v12/index.lazy').then((d) => d.Route))
 const V1IndexLazyRoute = V1IndexLazyRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => V1Route,
 } as any).lazy(() => import('./routes/v1/index.lazy').then((d) => d.Route))
+const V8AppLazyRoute = V8AppLazyRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => V8Route,
+} as any).lazy(() => import('./routes/v8/app.lazy').then((d) => d.Route))
 const V7AppLazyRoute = V7AppLazyRouteImport.update({
   id: '/app',
   path: '/app',
@@ -140,6 +171,11 @@ const V2AppLazyRoute = V2AppLazyRouteImport.update({
   path: '/app',
   getParentRoute: () => V2Route,
 } as any).lazy(() => import('./routes/v2/app.lazy').then((d) => d.Route))
+const V12AppLazyRoute = V12AppLazyRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => V12Route,
+} as any).lazy(() => import('./routes/v12/app.lazy').then((d) => d.Route))
 const V1AppLazyRoute = V1AppLazyRouteImport.update({
   id: '/app',
   path: '/app',
@@ -149,150 +185,191 @@ const V1AppLazyRoute = V1AppLazyRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/v1': typeof V1RouteWithChildren
+  '/v12': typeof V12RouteWithChildren
   '/v2': typeof V2RouteWithChildren
   '/v3': typeof V3RouteWithChildren
   '/v4': typeof V4RouteWithChildren
   '/v5': typeof V5RouteWithChildren
   '/v6': typeof V6RouteWithChildren
   '/v7': typeof V7RouteWithChildren
+  '/v8': typeof V8RouteWithChildren
   '/v1/app': typeof V1AppLazyRoute
+  '/v12/app': typeof V12AppLazyRoute
   '/v2/app': typeof V2AppLazyRoute
   '/v3/app': typeof V3AppLazyRoute
   '/v4/app': typeof V4AppLazyRoute
   '/v5/app': typeof V5AppLazyRoute
   '/v6/app': typeof V6AppLazyRoute
   '/v7/app': typeof V7AppLazyRoute
+  '/v8/app': typeof V8AppLazyRoute
   '/v1/': typeof V1IndexLazyRoute
+  '/v12/': typeof V12IndexLazyRoute
   '/v2/': typeof V2IndexLazyRoute
   '/v3/': typeof V3IndexLazyRoute
   '/v4/': typeof V4IndexLazyRoute
   '/v5/': typeof V5IndexLazyRoute
   '/v6/': typeof V6IndexLazyRoute
   '/v7/': typeof V7IndexLazyRoute
+  '/v8/': typeof V8IndexLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/v1/app': typeof V1AppLazyRoute
+  '/v12/app': typeof V12AppLazyRoute
   '/v2/app': typeof V2AppLazyRoute
   '/v3/app': typeof V3AppLazyRoute
   '/v4/app': typeof V4AppLazyRoute
   '/v5/app': typeof V5AppLazyRoute
   '/v6/app': typeof V6AppLazyRoute
   '/v7/app': typeof V7AppLazyRoute
+  '/v8/app': typeof V8AppLazyRoute
   '/v1': typeof V1IndexLazyRoute
+  '/v12': typeof V12IndexLazyRoute
   '/v2': typeof V2IndexLazyRoute
   '/v3': typeof V3IndexLazyRoute
   '/v4': typeof V4IndexLazyRoute
   '/v5': typeof V5IndexLazyRoute
   '/v6': typeof V6IndexLazyRoute
   '/v7': typeof V7IndexLazyRoute
+  '/v8': typeof V8IndexLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/v1': typeof V1RouteWithChildren
+  '/v12': typeof V12RouteWithChildren
   '/v2': typeof V2RouteWithChildren
   '/v3': typeof V3RouteWithChildren
   '/v4': typeof V4RouteWithChildren
   '/v5': typeof V5RouteWithChildren
   '/v6': typeof V6RouteWithChildren
   '/v7': typeof V7RouteWithChildren
+  '/v8': typeof V8RouteWithChildren
   '/v1/app': typeof V1AppLazyRoute
+  '/v12/app': typeof V12AppLazyRoute
   '/v2/app': typeof V2AppLazyRoute
   '/v3/app': typeof V3AppLazyRoute
   '/v4/app': typeof V4AppLazyRoute
   '/v5/app': typeof V5AppLazyRoute
   '/v6/app': typeof V6AppLazyRoute
   '/v7/app': typeof V7AppLazyRoute
+  '/v8/app': typeof V8AppLazyRoute
   '/v1/': typeof V1IndexLazyRoute
+  '/v12/': typeof V12IndexLazyRoute
   '/v2/': typeof V2IndexLazyRoute
   '/v3/': typeof V3IndexLazyRoute
   '/v4/': typeof V4IndexLazyRoute
   '/v5/': typeof V5IndexLazyRoute
   '/v6/': typeof V6IndexLazyRoute
   '/v7/': typeof V7IndexLazyRoute
+  '/v8/': typeof V8IndexLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/v1'
+    | '/v12'
     | '/v2'
     | '/v3'
     | '/v4'
     | '/v5'
     | '/v6'
     | '/v7'
+    | '/v8'
     | '/v1/app'
+    | '/v12/app'
     | '/v2/app'
     | '/v3/app'
     | '/v4/app'
     | '/v5/app'
     | '/v6/app'
     | '/v7/app'
+    | '/v8/app'
     | '/v1/'
+    | '/v12/'
     | '/v2/'
     | '/v3/'
     | '/v4/'
     | '/v5/'
     | '/v6/'
     | '/v7/'
+    | '/v8/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/v1/app'
+    | '/v12/app'
     | '/v2/app'
     | '/v3/app'
     | '/v4/app'
     | '/v5/app'
     | '/v6/app'
     | '/v7/app'
+    | '/v8/app'
     | '/v1'
+    | '/v12'
     | '/v2'
     | '/v3'
     | '/v4'
     | '/v5'
     | '/v6'
     | '/v7'
+    | '/v8'
   id:
     | '__root__'
     | '/'
     | '/v1'
+    | '/v12'
     | '/v2'
     | '/v3'
     | '/v4'
     | '/v5'
     | '/v6'
     | '/v7'
+    | '/v8'
     | '/v1/app'
+    | '/v12/app'
     | '/v2/app'
     | '/v3/app'
     | '/v4/app'
     | '/v5/app'
     | '/v6/app'
     | '/v7/app'
+    | '/v8/app'
     | '/v1/'
+    | '/v12/'
     | '/v2/'
     | '/v3/'
     | '/v4/'
     | '/v5/'
     | '/v6/'
     | '/v7/'
+    | '/v8/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   V1Route: typeof V1RouteWithChildren
+  V12Route: typeof V12RouteWithChildren
   V2Route: typeof V2RouteWithChildren
   V3Route: typeof V3RouteWithChildren
   V4Route: typeof V4RouteWithChildren
   V5Route: typeof V5RouteWithChildren
   V6Route: typeof V6RouteWithChildren
   V7Route: typeof V7RouteWithChildren
+  V8Route: typeof V8RouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/v8': {
+      id: '/v8'
+      path: '/v8'
+      fullPath: '/v8'
+      preLoaderRoute: typeof V8RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/v7': {
       id: '/v7'
       path: '/v7'
@@ -335,6 +412,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof V2RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/v12': {
+      id: '/v12'
+      path: '/v12'
+      fullPath: '/v12'
+      preLoaderRoute: typeof V12RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/v1': {
       id: '/v1'
       path: '/v1'
@@ -348,6 +432,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/v8/': {
+      id: '/v8/'
+      path: '/'
+      fullPath: '/v8/'
+      preLoaderRoute: typeof V8IndexLazyRouteImport
+      parentRoute: typeof V8Route
     }
     '/v7/': {
       id: '/v7/'
@@ -391,12 +482,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof V2IndexLazyRouteImport
       parentRoute: typeof V2Route
     }
+    '/v12/': {
+      id: '/v12/'
+      path: '/'
+      fullPath: '/v12/'
+      preLoaderRoute: typeof V12IndexLazyRouteImport
+      parentRoute: typeof V12Route
+    }
     '/v1/': {
       id: '/v1/'
       path: '/'
       fullPath: '/v1/'
       preLoaderRoute: typeof V1IndexLazyRouteImport
       parentRoute: typeof V1Route
+    }
+    '/v8/app': {
+      id: '/v8/app'
+      path: '/app'
+      fullPath: '/v8/app'
+      preLoaderRoute: typeof V8AppLazyRouteImport
+      parentRoute: typeof V8Route
     }
     '/v7/app': {
       id: '/v7/app'
@@ -440,6 +545,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof V2AppLazyRouteImport
       parentRoute: typeof V2Route
     }
+    '/v12/app': {
+      id: '/v12/app'
+      path: '/app'
+      fullPath: '/v12/app'
+      preLoaderRoute: typeof V12AppLazyRouteImport
+      parentRoute: typeof V12Route
+    }
     '/v1/app': {
       id: '/v1/app'
       path: '/app'
@@ -461,6 +573,18 @@ const V1RouteChildren: V1RouteChildren = {
 }
 
 const V1RouteWithChildren = V1Route._addFileChildren(V1RouteChildren)
+
+interface V12RouteChildren {
+  V12AppLazyRoute: typeof V12AppLazyRoute
+  V12IndexLazyRoute: typeof V12IndexLazyRoute
+}
+
+const V12RouteChildren: V12RouteChildren = {
+  V12AppLazyRoute: V12AppLazyRoute,
+  V12IndexLazyRoute: V12IndexLazyRoute,
+}
+
+const V12RouteWithChildren = V12Route._addFileChildren(V12RouteChildren)
 
 interface V2RouteChildren {
   V2AppLazyRoute: typeof V2AppLazyRoute
@@ -534,15 +658,29 @@ const V7RouteChildren: V7RouteChildren = {
 
 const V7RouteWithChildren = V7Route._addFileChildren(V7RouteChildren)
 
+interface V8RouteChildren {
+  V8AppLazyRoute: typeof V8AppLazyRoute
+  V8IndexLazyRoute: typeof V8IndexLazyRoute
+}
+
+const V8RouteChildren: V8RouteChildren = {
+  V8AppLazyRoute: V8AppLazyRoute,
+  V8IndexLazyRoute: V8IndexLazyRoute,
+}
+
+const V8RouteWithChildren = V8Route._addFileChildren(V8RouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   V1Route: V1RouteWithChildren,
+  V12Route: V12RouteWithChildren,
   V2Route: V2RouteWithChildren,
   V3Route: V3RouteWithChildren,
   V4Route: V4RouteWithChildren,
   V5Route: V5RouteWithChildren,
   V6Route: V6RouteWithChildren,
   V7Route: V7RouteWithChildren,
+  V8Route: V8RouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -8,21 +8,21 @@ export default function Home() {
   const { companyName } = useCompanyName();
   const [showSettings, setShowSettings] = useState(false);
   return (
-    <div className="min-h-screen bg-paper text-ink font-sans flex items-center justify-center p-6 overflow-x-hidden">
+    <div className="flex min-h-screen items-center justify-center overflow-x-hidden bg-white p-6 font-sans text-ink">
       <button
         onClick={() => setShowSettings(true)}
-        className="fixed top-6 right-6 z-50 p-3 bg-white border-2 border-ink rounded-full hover:bg-ink hover:text-white transition-colors shadow-lg"
+        className="fixed top-6 right-6 z-50 rounded-full border-2 border-ink bg-white p-3 shadow-lg transition-colors hover:bg-ink hover:text-white"
         title="Company Settings"
       >
-        <Settings className="w-5 h-5" />
+        <Settings className="h-5 w-5" />
       </button>
       <div className="w-full pl-32">
-        <h1 className="text-6xl font-bold mb-12 tracking-tighter">
+        <h1 className="mb-12 font-bold text-6xl tracking-tighter">
           {companyName} <br />
           <span className="text-primary-blue">DESIGN VERSIONS</span>
         </h1>
 
-        <div className="flex items-center gap-8 overflow-x-auto pb-12 pr-12 scrollbar-hide">
+        <div className="scrollbar-hide flex items-center gap-8 overflow-x-auto pr-12 pb-12">
           {/* V1 - Ascension */}
           <VersionCard
             version="V1"
@@ -34,7 +34,7 @@ export default function Home() {
             to="/v1"
             hoverColor="hover:text-ai-orange"
           >
-            <div className="absolute inset-0 pointer-events-none opacity-20">
+            <div className="pointer-events-none absolute inset-0 opacity-20">
               {Array.from({ length: 10 }).map((_, i) => (
                 <div
                   key={i}
@@ -49,7 +49,7 @@ export default function Home() {
                   }}
                 />
               ))}
-              <div className="absolute top-10 right-10 w-20 h-20 bg-ai-orange rounded-full" />
+              <div className="absolute top-10 right-10 h-20 w-20 rounded-full bg-ai-orange" />
             </div>
           </VersionCard>
 
@@ -66,13 +66,13 @@ export default function Home() {
             hoverColor="hover:text-[#E82C2A]"
             className="text-[#54443F]"
           >
-            <div className="absolute inset-0 pointer-events-none flex justify-between px-4 opacity-10">
+            <div className="pointer-events-none absolute inset-0 flex justify-between px-4 opacity-10">
               {Array.from({ length: 12 }).map((_, i) => (
-                <div key={i} className="w-1 h-full bg-[#54443F]" />
+                <div key={i} className="h-full w-1 bg-[#54443F]" />
               ))}
             </div>
-            <div className="absolute top-4 left-4 w-12 h-12 bg-[#1C5D99] rounded-full opacity-20" />
-            <div className="absolute bottom-10 right-10 w-16 h-16 bg-[#E82C2A] rounded-full opacity-20" />
+            <div className="absolute top-4 left-4 h-12 w-12 rounded-full bg-[#1C5D99] opacity-20" />
+            <div className="absolute right-10 bottom-10 h-16 w-16 rounded-full bg-[#E82C2A] opacity-20" />
           </VersionCard>
 
           {/* V3 - Data Shapes */}
@@ -87,10 +87,10 @@ export default function Home() {
             hoverColor="hover:text-blue-600"
             className="rounded-3xl border-slate-100 shadow-sm"
           >
-            <div className="absolute inset-0 pointer-events-none opacity-10">
-              <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-blue-100 to-transparent" />
-              <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-tr from-orange-100 to-transparent" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-slate-200 rounded-full" />
+            <div className="pointer-events-none absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 h-full w-full bg-gradient-to-bl from-blue-100 to-transparent" />
+              <div className="absolute bottom-0 left-0 h-full w-full bg-gradient-to-tr from-orange-100 to-transparent" />
+              <div className="absolute top-1/2 left-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-slate-200" />
             </div>
           </VersionCard>
 
@@ -106,10 +106,10 @@ export default function Home() {
             to="/v4"
             hoverColor="hover:text-blue-600"
           >
-            <div className="absolute inset-0 pointer-events-none opacity-20">
-              <div className="absolute top-0 right-10 w-4 h-full bg-black" />
-              <div className="absolute top-0 right-20 w-4 h-full bg-black" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-blue-600 rounded-full" />
+            <div className="pointer-events-none absolute inset-0 opacity-20">
+              <div className="absolute top-0 right-10 h-full w-4 bg-black" />
+              <div className="absolute top-0 right-20 h-full w-4 bg-black" />
+              <div className="absolute top-1/2 left-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600" />
             </div>
           </VersionCard>
 
@@ -125,16 +125,16 @@ export default function Home() {
             to="/v5"
             hoverColor="hover:text-[#A855F7]"
           >
-            <div className="absolute inset-0 pointer-events-none opacity-10 flex items-end justify-center gap-1 px-2">
+            <div className="pointer-events-none absolute inset-0 flex items-end justify-center gap-1 px-2 opacity-10">
               {Array.from({ length: 40 }).map((_, i) => (
                 <div
                   key={i}
-                  className="bg-black w-2 rounded-sm"
+                  className="w-2 rounded-sm bg-black"
                   style={{ height: `${20 + Math.random() * 60}%` }}
                 />
               ))}
             </div>
-            <div className="absolute bottom-4 left-0 w-full h-1 bg-purple-500 opacity-20" />
+            <div className="absolute bottom-4 left-0 h-1 w-full bg-purple-500 opacity-20" />
           </VersionCard>
 
           {/* V6 - Flowing Thought */}
@@ -150,8 +150,8 @@ export default function Home() {
             hoverColor="hover:text-black"
             className="font-light"
           >
-            <div className="absolute inset-0 pointer-events-none opacity-20">
-              <svg className="w-full h-full" viewBox="0 0 400 300">
+            <div className="pointer-events-none absolute inset-0 opacity-20">
+              <svg className="h-full w-full" viewBox="0 0 400 300">
                 {Array.from({ length: 6 }).map((_, i) => (
                   <path
                     key={i}
@@ -176,23 +176,68 @@ export default function Home() {
             borderColor="border-[#C05A3D]"
             to="/v7"
             hoverColor="hover:text-[#C05A3D]"
+            versionClassName="font-serif italic"
+            descriptionClassName="font-serif"
+            bgImage="/v7/image1.jpeg"
+          ></VersionCard>
+
+          {/* V8 - The Moire */}
+          <VersionCard
+            version="V8"
+            status="New"
+            cardBgColor="bg-[#EDEDEB]"
+            statusBgColor="bg-[#6B7B8F]"
+            statusTextColor="text-white"
+            description="The Moire. Optical line art, ethereal depth, and quiet mystery. Patterns emerge from parallel lines of inquiry."
+            borderColor="border-[#6B7B8F]"
+            to="/v8"
+            hoverColor="hover:text-[#6B7B8F]"
+            versionClassName="font-extralight tracking-[0.2em]"
+            descriptionClassName="font-extralight"
+            bgImage="/v8/image1.jpeg"
           >
-            <div className="absolute inset-0 pointer-events-none opacity-15">
-              <svg className="w-full h-full" viewBox="0 0 400 300" fill="none" stroke="#1A1A1A" strokeWidth="2">
-                {/* Simplified pictographic figure */}
-                <circle cx="200" cy="80" r="18" />
-                <circle cx="195" cy="77" r="2.5" fill="#1A1A1A" />
-                <path d="M200 98 L220 180 L200 168 L180 180Z" />
-                <path d="M186 130 L160 108 L165 80" />
-                <path d="M214 130 L240 108 L235 80" />
-                {/* Document */}
-                <rect x="152" y="58" width="36" height="24" rx="2" />
-                <line x1="158" y1="68" x2="182" y2="68" />
-                <line x1="158" y1="76" x2="176" y2="76" />
-                {/* Action lines */}
-                <line x1="248" y1="110" x2="260" y2="110" />
-                <line x1="252" y1="120" x2="264" y2="120" />
+            <div className="pointer-events-none absolute inset-0 opacity-20">
+              <svg className="h-full w-full" viewBox="0 0 400 300" fill="none">
+                {Array.from({ length: 25 }).map((_, i) => {
+                  const y = 10 + i * 12;
+                  return (
+                    <path
+                      key={i}
+                      d={`M 0 ${y} C 100 ${y - 20 + i}, 300 ${y + 20 - i}, 400 ${y}`}
+                      stroke="#1C1C1C"
+                      strokeWidth="0.5"
+                      opacity={0.4 + (i % 5) * 0.1}
+                    />
+                  );
+                })}
+                <g opacity="0.6">
+                  <circle cx="300" cy="150" r="80" stroke="#1C1C1C" strokeWidth="0.3" />
+                  <circle cx="300" cy="150" r="70" stroke="#1C1C1C" strokeWidth="0.3" />
+                  <circle cx="300" cy="150" r="60" stroke="#1C1C1C" strokeWidth="0.3" />
+                  <circle cx="300" cy="150" r="50" stroke="#1C1C1C" strokeWidth="0.3" />
+                </g>
               </svg>
+            </div>
+          </VersionCard>
+
+          {/* V12 - The Threshold */}
+          <VersionCard
+            version="V9"
+            status="New"
+            cardBgColor="bg-[#F0EDE6]"
+            statusBgColor="bg-[#E63226]"
+            statusTextColor="text-white"
+            description="The Threshold. Constructivist minimalism -- monumental color planes, solitary figures, and the search for doorways through complexity."
+            borderColor="border-[#E63226]"
+            to="/v12"
+            hoverColor="hover:text-[#E63226]"
+            versionClassName="font-light tracking-[0.15em]"
+            descriptionClassName="font-normal"
+            bgImage="/v12/image1.jpeg"
+          >
+            <div className="pointer-events-none absolute inset-0 opacity-15">
+              <div className="absolute top-0 right-0 h-full w-2/5 bg-[#E63226]" />
+              <div className="absolute right-[15%] bottom-[20%] h-4 w-8 bg-[#141414]" />
             </div>
           </VersionCard>
         </div>

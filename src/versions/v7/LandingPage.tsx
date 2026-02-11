@@ -359,14 +359,8 @@ export default function LandingPageV7() {
                   >
                     Scroll
                   </span>
-                  <motion.div
-                    animate={{ y: [0, 8, 0] }}
-                    transition={{
-                      duration: 2,
-                      repeat: Number.POSITIVE_INFINITY,
-                      ease: "easeInOut",
-                    }}
-                    className="h-8 w-[1.5px]"
+                  <div
+                    className="h-8 w-[1.5px] animate-[scroll-bounce-v7_2s_ease-in-out_infinite]"
                     style={{ backgroundColor: V7.warmGray }}
                   />
                 </motion.div>
@@ -437,14 +431,8 @@ export default function LandingPageV7() {
                     transition={{ delay: 1, duration: 0.8 }}
                     className="mt-14 flex items-center gap-3"
                   >
-                    <motion.div
-                      animate={{ y: [0, 6, 0] }}
-                      transition={{
-                        duration: 2,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: "easeInOut",
-                      }}
-                      className="h-8 w-[1.5px]"
+                    <div
+                      className="h-8 w-[1.5px] animate-[scroll-bounce-v7_2s_ease-in-out_infinite]"
                       style={{ backgroundColor: V7.warmGray }}
                     />
                     <span
@@ -858,6 +846,15 @@ export default function LandingPageV7() {
       </footer>
 
       <HomeWidget />
+
+      <style>
+        {`
+          @keyframes scroll-bounce-v7 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+          }
+        `}
+      </style>
     </div>
   );
 }
