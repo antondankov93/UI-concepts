@@ -11,6 +11,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as V7RouteImport } from './routes/v7'
 import { Route as V6RouteImport } from './routes/v6'
 import { Route as V5RouteImport } from './routes/v5'
 import { Route as V4RouteImport } from './routes/v4'
@@ -19,12 +20,14 @@ import { Route as V2RouteImport } from './routes/v2'
 import { Route as V1RouteImport } from './routes/v1'
 import { Route as IndexRouteImport } from './routes/index'
 
+const V7IndexLazyRouteImport = createFileRoute('/v7/')()
 const V6IndexLazyRouteImport = createFileRoute('/v6/')()
 const V5IndexLazyRouteImport = createFileRoute('/v5/')()
 const V4IndexLazyRouteImport = createFileRoute('/v4/')()
 const V3IndexLazyRouteImport = createFileRoute('/v3/')()
 const V2IndexLazyRouteImport = createFileRoute('/v2/')()
 const V1IndexLazyRouteImport = createFileRoute('/v1/')()
+const V7AppLazyRouteImport = createFileRoute('/v7/app')()
 const V6AppLazyRouteImport = createFileRoute('/v6/app')()
 const V5AppLazyRouteImport = createFileRoute('/v5/app')()
 const V4AppLazyRouteImport = createFileRoute('/v4/app')()
@@ -32,6 +35,11 @@ const V3AppLazyRouteImport = createFileRoute('/v3/app')()
 const V2AppLazyRouteImport = createFileRoute('/v2/app')()
 const V1AppLazyRouteImport = createFileRoute('/v1/app')()
 
+const V7Route = V7RouteImport.update({
+  id: '/v7',
+  path: '/v7',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const V6Route = V6RouteImport.update({
   id: '/v6',
   path: '/v6',
@@ -67,6 +75,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+const V7IndexLazyRoute = V7IndexLazyRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => V7Route,
+} as any).lazy(() => import('./routes/v7/index.lazy').then((d) => d.Route))
 const V6IndexLazyRoute = V6IndexLazyRouteImport.update({
   id: '/',
   path: '/',
@@ -97,6 +110,11 @@ const V1IndexLazyRoute = V1IndexLazyRouteImport.update({
   path: '/',
   getParentRoute: () => V1Route,
 } as any).lazy(() => import('./routes/v1/index.lazy').then((d) => d.Route))
+const V7AppLazyRoute = V7AppLazyRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => V7Route,
+} as any).lazy(() => import('./routes/v7/app.lazy').then((d) => d.Route))
 const V6AppLazyRoute = V6AppLazyRouteImport.update({
   id: '/app',
   path: '/app',
@@ -136,18 +154,21 @@ export interface FileRoutesByFullPath {
   '/v4': typeof V4RouteWithChildren
   '/v5': typeof V5RouteWithChildren
   '/v6': typeof V6RouteWithChildren
+  '/v7': typeof V7RouteWithChildren
   '/v1/app': typeof V1AppLazyRoute
   '/v2/app': typeof V2AppLazyRoute
   '/v3/app': typeof V3AppLazyRoute
   '/v4/app': typeof V4AppLazyRoute
   '/v5/app': typeof V5AppLazyRoute
   '/v6/app': typeof V6AppLazyRoute
+  '/v7/app': typeof V7AppLazyRoute
   '/v1/': typeof V1IndexLazyRoute
   '/v2/': typeof V2IndexLazyRoute
   '/v3/': typeof V3IndexLazyRoute
   '/v4/': typeof V4IndexLazyRoute
   '/v5/': typeof V5IndexLazyRoute
   '/v6/': typeof V6IndexLazyRoute
+  '/v7/': typeof V7IndexLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -157,12 +178,14 @@ export interface FileRoutesByTo {
   '/v4/app': typeof V4AppLazyRoute
   '/v5/app': typeof V5AppLazyRoute
   '/v6/app': typeof V6AppLazyRoute
+  '/v7/app': typeof V7AppLazyRoute
   '/v1': typeof V1IndexLazyRoute
   '/v2': typeof V2IndexLazyRoute
   '/v3': typeof V3IndexLazyRoute
   '/v4': typeof V4IndexLazyRoute
   '/v5': typeof V5IndexLazyRoute
   '/v6': typeof V6IndexLazyRoute
+  '/v7': typeof V7IndexLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -173,18 +196,21 @@ export interface FileRoutesById {
   '/v4': typeof V4RouteWithChildren
   '/v5': typeof V5RouteWithChildren
   '/v6': typeof V6RouteWithChildren
+  '/v7': typeof V7RouteWithChildren
   '/v1/app': typeof V1AppLazyRoute
   '/v2/app': typeof V2AppLazyRoute
   '/v3/app': typeof V3AppLazyRoute
   '/v4/app': typeof V4AppLazyRoute
   '/v5/app': typeof V5AppLazyRoute
   '/v6/app': typeof V6AppLazyRoute
+  '/v7/app': typeof V7AppLazyRoute
   '/v1/': typeof V1IndexLazyRoute
   '/v2/': typeof V2IndexLazyRoute
   '/v3/': typeof V3IndexLazyRoute
   '/v4/': typeof V4IndexLazyRoute
   '/v5/': typeof V5IndexLazyRoute
   '/v6/': typeof V6IndexLazyRoute
+  '/v7/': typeof V7IndexLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -196,18 +222,21 @@ export interface FileRouteTypes {
     | '/v4'
     | '/v5'
     | '/v6'
+    | '/v7'
     | '/v1/app'
     | '/v2/app'
     | '/v3/app'
     | '/v4/app'
     | '/v5/app'
     | '/v6/app'
+    | '/v7/app'
     | '/v1/'
     | '/v2/'
     | '/v3/'
     | '/v4/'
     | '/v5/'
     | '/v6/'
+    | '/v7/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -217,12 +246,14 @@ export interface FileRouteTypes {
     | '/v4/app'
     | '/v5/app'
     | '/v6/app'
+    | '/v7/app'
     | '/v1'
     | '/v2'
     | '/v3'
     | '/v4'
     | '/v5'
     | '/v6'
+    | '/v7'
   id:
     | '__root__'
     | '/'
@@ -232,18 +263,21 @@ export interface FileRouteTypes {
     | '/v4'
     | '/v5'
     | '/v6'
+    | '/v7'
     | '/v1/app'
     | '/v2/app'
     | '/v3/app'
     | '/v4/app'
     | '/v5/app'
     | '/v6/app'
+    | '/v7/app'
     | '/v1/'
     | '/v2/'
     | '/v3/'
     | '/v4/'
     | '/v5/'
     | '/v6/'
+    | '/v7/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -254,10 +288,18 @@ export interface RootRouteChildren {
   V4Route: typeof V4RouteWithChildren
   V5Route: typeof V5RouteWithChildren
   V6Route: typeof V6RouteWithChildren
+  V7Route: typeof V7RouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/v7': {
+      id: '/v7'
+      path: '/v7'
+      fullPath: '/v7'
+      preLoaderRoute: typeof V7RouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/v6': {
       id: '/v6'
       path: '/v6'
@@ -307,6 +349,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/v7/': {
+      id: '/v7/'
+      path: '/'
+      fullPath: '/v7/'
+      preLoaderRoute: typeof V7IndexLazyRouteImport
+      parentRoute: typeof V7Route
+    }
     '/v6/': {
       id: '/v6/'
       path: '/'
@@ -348,6 +397,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/v1/'
       preLoaderRoute: typeof V1IndexLazyRouteImport
       parentRoute: typeof V1Route
+    }
+    '/v7/app': {
+      id: '/v7/app'
+      path: '/app'
+      fullPath: '/v7/app'
+      preLoaderRoute: typeof V7AppLazyRouteImport
+      parentRoute: typeof V7Route
     }
     '/v6/app': {
       id: '/v6/app'
@@ -466,6 +522,18 @@ const V6RouteChildren: V6RouteChildren = {
 
 const V6RouteWithChildren = V6Route._addFileChildren(V6RouteChildren)
 
+interface V7RouteChildren {
+  V7AppLazyRoute: typeof V7AppLazyRoute
+  V7IndexLazyRoute: typeof V7IndexLazyRoute
+}
+
+const V7RouteChildren: V7RouteChildren = {
+  V7AppLazyRoute: V7AppLazyRoute,
+  V7IndexLazyRoute: V7IndexLazyRoute,
+}
+
+const V7RouteWithChildren = V7Route._addFileChildren(V7RouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   V1Route: V1RouteWithChildren,
@@ -474,6 +542,7 @@ const rootRouteChildren: RootRouteChildren = {
   V4Route: V4RouteWithChildren,
   V5Route: V5RouteWithChildren,
   V6Route: V6RouteWithChildren,
+  V7Route: V7RouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

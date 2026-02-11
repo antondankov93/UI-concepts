@@ -164,6 +164,37 @@ export default function Home() {
               </svg>
             </div>
           </VersionCard>
+
+          {/* V7 - The Pictograph */}
+          <VersionCard
+            version="V7"
+            status="New"
+            cardBgColor="bg-[#E8E4DB]"
+            statusBgColor="bg-[#C05A3D]"
+            statusTextColor="text-white"
+            description="The Pictograph. Isotype-inspired ink illustrations on warm parchment. Scholarly, human, precise."
+            borderColor="border-[#C05A3D]"
+            to="/v7"
+            hoverColor="hover:text-[#C05A3D]"
+          >
+            <div className="absolute inset-0 pointer-events-none opacity-15">
+              <svg className="w-full h-full" viewBox="0 0 400 300" fill="none" stroke="#1A1A1A" strokeWidth="2">
+                {/* Simplified pictographic figure */}
+                <circle cx="200" cy="80" r="18" />
+                <circle cx="195" cy="77" r="2.5" fill="#1A1A1A" />
+                <path d="M200 98 L220 180 L200 168 L180 180Z" />
+                <path d="M186 130 L160 108 L165 80" />
+                <path d="M214 130 L240 108 L235 80" />
+                {/* Document */}
+                <rect x="152" y="58" width="36" height="24" rx="2" />
+                <line x1="158" y1="68" x2="182" y2="68" />
+                <line x1="158" y1="76" x2="176" y2="76" />
+                {/* Action lines */}
+                <line x1="248" y1="110" x2="260" y2="110" />
+                <line x1="252" y1="120" x2="264" y2="120" />
+              </svg>
+            </div>
+          </VersionCard>
         </div>
       </div>
       {showSettings && <CompanySettings onClose={() => setShowSettings(false)} />}
