@@ -53,7 +53,7 @@ export default function LandingPageV5() {
         <div className="pointer-events-auto">
           <Link
             to="/"
-            className="text-3xl font-black tracking-tighter uppercase leading-none block hover:tracking-[-0.05em] transition-all duration-500 bg-[#F2EFE4]"
+            className="text-3xl font-medium tracking-tighter uppercase leading-none block hover:tracking-[-0.05em] transition-all duration-500 bg-[#F2EFE4]"
           >
             {companyName}
           </Link>

@@ -683,10 +683,7 @@ export default function LandingPageV12() {
 
       {/* ========== FOOTER (image6 in left bottom corner) ========== */}
       {/* image6: Red geometric form with figure -- the signature mark */}
-      <footer
-        className="relative z-10 overflow-hidden px-8 py-16 md:px-14"
-        style={{ backgroundColor: V12.creamDark }}
-      >
+      <footer className="relative z-10 overflow-hidden px-8 py-16 md:px-14">
         {/* image6 absolutely positioned in the very bottom left corner */}
         <div className="pointer-events-none absolute bottom-0 left-0 h-48 w-auto md:h-83">
           <img

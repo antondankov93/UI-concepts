@@ -289,17 +289,15 @@ export default function LandingPageV4() {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-30 w-full bg-black text-[#EBE5CE] py-12 px-6 overflow-hidden">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
-          <div>
-            <h2 className="text-6xl font-black tracking-tighter mb-6">{companyName}</h2>
-            <div className="flex gap-4">
-              <div className="w-6 h-6 bg-blue-600 rounded-full" />
-              <div className="w-6 h-6 bg-[#EBE5CE] rounded-full" />
-              <div className="w-6 h-6 border-2 border-[#EBE5CE] rounded-full" />
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row gap-12 text-lg font-bold uppercase tracking-widest text-[#EBE5CE]/60">
+      <footer className="relative z-30 w-full bg-black text-[#EBE5CE] h-60 pt-12 px-6 overflow-hidden flex items-end">
+        <div className="w-full flex flex-col md:flex-row justify-between items-end gap-12">
+          <h2 className="text-6xl font-black tracking-tighter">{companyName}</h2>
+          {/*<div className="flex gap-4">*/}
+          {/*  <div className="w-6 h-6 bg-blue-600 rounded-full" />*/}
+          {/*  <div className="w-6 h-6 bg-[#EBE5CE] rounded-full" />*/}
+          {/*  <div className="w-6 h-6 border-2 border-[#EBE5CE] rounded-full" />*/}
+          {/*</div>*/}
+          <div className="flex flex-col md:flex-row gap-12 text-lg mb-6 font-bold uppercase tracking-widest text-[#EBE5CE]/60">
             <a href="#" className="hover:text-blue-500 transition-colors">
               Manifesto
             </a>

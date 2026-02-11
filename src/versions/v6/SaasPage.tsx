@@ -41,7 +41,7 @@ export default function SaasPageV6() {
               key={i}
               to="/v6/app"
               className={`group flex items-center justify-center lg:justify-start gap-3 px-3 py-2 rounded-full transition-all relative overflow-hidden
-                            ${item.active ? "bg-black text-white shadow-lg shadow-black/20" : "text-black/50 hover:bg-black/5 hover:text-black"}
+                            ${item.active ? "bg-black text-white shadow-sm shadow-black/20" : "text-black/50 hover:bg-black/5 hover:text-black"}
                         `}
             >
               <item.icon className="w-4 h-4 shrink-0" strokeWidth={1.5} />

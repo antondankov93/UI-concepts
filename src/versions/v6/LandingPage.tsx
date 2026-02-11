@@ -45,7 +45,7 @@ export default function LandingPageV6() {
 
         // Highlight 3-4 lines in accent color
         const isAccent = i === 15 || i === 30 || i === 45;
-        ctx.strokeStyle = isAccent ? V7Colors.accent : V7Colors.ink;
+        ctx.strokeStyle = isAccent ? V7Colors.ink : V7Colors.ink;
 
         // Distribute lines vertically
         const baseY = (canvas.height / lines) * i;
@@ -130,10 +130,7 @@ export default function LandingPageV6() {
             transition={{ delay: 0.8, duration: 1 }}
             className="flex flex-col items-center gap-4"
           >
-            <div
-              className="h-0.5 w-24 bg-black/30"
-              style={{ backgroundColor: V7Colors.accent }}
-            ></div>
+            <div className="h-0.5 w-24 bg-black/30"></div>
             <p className="text-lg md:text-xl font-light max-w-lg text-black/70 italic">
               "From chaos comes clarity. The organic structure of wisdom."
             </p>

@@ -9,7 +9,7 @@ export default function LandingPageV1() {
     <div className="min-h-screen bg-paper text-ink overflow-hidden font-sans selection:bg-ink selection:text-paper">
       {/* Navigation - Minimalist */}
       <nav className="fixed top-0 w-full z-50 p-8 flex justify-between items-end mix-blend-difference text-white/90">
-        <Link to="/" className="text-4xl font-bold tracking-tighter">
+        <Link to="/" className="text-4xl font-medium tracking-tighter">
           {companyName}
         </Link>
         <div className="flex gap-8 text-sm font-bold tracking-widest uppercase items-center">
@@ -34,7 +34,7 @@ export default function LandingPageV1() {
         </div>
 
         <div className="relative z-30 container mx-auto">
-          <h1 className="text-6xl md:text-[10rem] font-medium leading-[0.8] tracking-tighter text-black/90 drop-shadow-md">
+          <h1 className="text-6xl md:text-9xl font-medium leading-[0.8] tracking-tighter text-black/90 drop-shadow-md">
             ASCEND
             <br />
             TO
@@ -60,7 +60,7 @@ export default function LandingPageV1() {
       </header>
 
       {/* Strategic Discovery Section - Professional */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section className="h-[80vh] bg-white relative overflow-hidden flex flex-col justify-center items-center">
         {/* Subtle geometric background */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.02]">
           <div
